@@ -74,6 +74,7 @@ export class CommitTrendComponent implements OnInit {
       request => {
 
         this.datas = request;
+        //console.log(request);
 
         // all 圖
         for (const temp of this.datas[0].weeks_stats) {
