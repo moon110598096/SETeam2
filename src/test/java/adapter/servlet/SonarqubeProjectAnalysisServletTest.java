@@ -33,7 +33,7 @@ public class SonarqubeProjectAnalysisServletTest {
 //
 //    @Test
 //    public void GetBugTest() throws IOException {
-//        BugServlet.doPost(request, response);  //改doGet?
+//        BugServlet.doPost(request, response);
 //        JSONArray jsonArray = (JSONArray) request.getAttribute("measures");
 //        Assert.assertEquals("bugs", jsonArray.getJSONObject(0).getString("metric"));
 //        Assert.assertEquals(1, jsonArray.getJSONObject(0).getInt("value"));
@@ -41,7 +41,7 @@ public class SonarqubeProjectAnalysisServletTest {
 //
 //    @Test
 //    public void GetVulnerabilityTest() throws IOException {
-//        vulnerabilityServlet.doPost(request, response);  //改doGet?
+//        vulnerabilityServlet.doPost(request, response);
 //        JSONArray jsonArray = (JSONArray) request.getAttribute("measures");
 //        Assert.assertEquals("vulnerabilities", jsonArray.getJSONObject(0).getString("metric"));
 //        Assert.assertEquals(2, jsonArray.getJSONObject(0).getInt("value"));
@@ -49,7 +49,7 @@ public class SonarqubeProjectAnalysisServletTest {
 
 //    @Test
 //    public void GetCodeSmellTest() throws IOException {
-//        codeSmellsServlet.doPost(request, response);  //改doGet?
+//        codeSmellsServlet.doPost(request, response);  
 //        JSONArray jsonArray = (JSONArray) request.getAttribute("measures");
 //        Assert.assertEquals("code_smells", jsonArray.getJSONObject(0).getString("metric"));
 //        Assert.assertEquals(4, jsonArray.getJSONObject(0).getInt("value"));
