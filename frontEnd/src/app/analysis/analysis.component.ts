@@ -44,7 +44,7 @@ export class AnalysisComponent implements OnInit {
     this.router.navigate(['issue-track']);
   }
 
-    goToSonarQubePage() {
+  goToSonarQubePage() {
       // this.router.navigateByUrl('issue-track');
       this.router.navigate(['sonar-qube']);
     }

@@ -34,7 +34,7 @@ import { ComparemultiprojectComponent } from './comparemultiproject/comparemulti
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
-import { SonarQubeComponent } from './sonar-qube/sonar-qube.component';
+import {SonarQubeComponent} from './sonar-qube/sonar-qube.component';
 
 
 
@@ -64,7 +64,6 @@ import { SonarQubeComponent } from './sonar-qube/sonar-qube.component';
     FooterComponent,
     ComparemultiprojectComponent,
     SonarQubeComponent,
-
 
   ],
   imports: [ // 宣告要匯入此模組的外部模組

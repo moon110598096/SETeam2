@@ -10,6 +10,7 @@ export class SonarQubeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

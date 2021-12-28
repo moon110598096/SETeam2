@@ -16,6 +16,7 @@ import {IssueTrackComponent} from './issue-track/issue-track.component';
 import {HomepageComponent} from './homepage/homepage.component';
 import {ProjectoverviewComponent} from './projectoverview/projectoverview.component';
 import {ComparemultiprojectComponent} from './comparemultiproject/comparemultiproject.component';
+import {SonarQubeComponent} from './sonar-qube/sonar-qube.component';
 
 
 const routes: Routes = [
@@ -36,9 +37,8 @@ const routes: Routes = [
   {path: 'issue-track', component: IssueTrackComponent},
   {path: 'projectoverview', component: ProjectoverviewComponent},
   {path: 'multiproject', component: ComparemultiprojectComponent},
+  {path: 'sonar-qube' , component: SonarQubeComponent},
   {path: '**', component: LoginComponent}
-
-
 ];
 
 @NgModule({
