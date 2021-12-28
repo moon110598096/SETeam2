@@ -5,6 +5,7 @@ import {Router, ActivatedRoute} from '@angular/router';
   selector: 'app-analysis',
   templateUrl: './analysis.component.html',
   styleUrls: ['./analysis.component.css']
+
 })
 export class AnalysisComponent implements OnInit {
   imgURL = 'https://assets.juksy.com/files/articles/53296/800x_100_w-5720399b28484.jpg';
@@ -42,4 +43,9 @@ export class AnalysisComponent implements OnInit {
     // this.router.navigateByUrl('issue-track');
     this.router.navigate(['issue-track']);
   }
+
+    goToSonarQubePage() {
+      // this.router.navigateByUrl('issue-track');
+      this.router.navigate(['sonar-qube']);
+    }
 }
