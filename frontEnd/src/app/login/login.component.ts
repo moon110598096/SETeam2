@@ -56,4 +56,8 @@ export class LoginComponent implements OnInit {
   RoutetoSignup(){
     this.redirectTo("signup");
   }
+
+  RoutetoOAuth(){
+    window.location.href = 'https://github.com/login/oauth/authorize?client_id=2ba7827da6b98900790e';
+  }
 }

@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
             jsonObject.append("valid", "true");
             jsonObject.append("userName", account.getName());
             jsonObject.append("userId", account.getId());
-            jsonObject.append("redirect", "homepage");
+            jsonObject.append("redirect", "choose-project");
         }
         else{
             jsonObject.append("valid", "false");

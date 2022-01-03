@@ -21,7 +21,6 @@ import {SonarQubeComponent} from './sonar-qube/sonar-qube.component';
 
 const routes: Routes = [
   {path: 'homepage', component: HomepageComponent},
-  {path: '', component: HomepageComponent},
   {path: 'LoginPage', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'admin', component: AdminComponent},

@@ -50,3 +50,13 @@ button {
         width: 70%;
     }
 }
+
+input[type="button"] {
+    border: 0;
+    padding: 6px 12px;
+    margin: 20px auto;
+    font-size: 18px;
+    font-family: "微軟正黑體", sans-serif;
+    background-color:transparent;
+    color: black;
+}
