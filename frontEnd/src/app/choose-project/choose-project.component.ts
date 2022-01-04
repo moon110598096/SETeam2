@@ -85,11 +85,5 @@ export class ChooseProjectComponent implements OnInit {
 
   }
 
-  // tslint:disable-next-line:typedef
-  goToAddProjectPage() {
-    this.router.navigate(['createproject']);
-  }
-
-
 
 }

@@ -23,7 +23,9 @@ export class ProjectHeaderComponent implements OnInit {
   redirectTo(url){
     this.router.navigateByUrl(url.toString());
   }
-
+  NavitoProjectChoose(){
+    this.redirectTo("choose-project");
+  }
   NavitoCommitTrend(){
     this.redirectTo("commit-trend");
   }
