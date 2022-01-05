@@ -2,6 +2,7 @@ apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'idea'
 apply plugin: 'com.bmuschko.tomcat'
+apply plugin: "org.sonarqube"
 
 group 'org.example'
 version '1.0-SNAPSHOT'
@@ -10,6 +11,15 @@ compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 
 sourceCompatibility = 1.8
+
+sonarqube {
+    properties {
+        property "projectKey", "islab1221"
+        property "sonar.host.url", "http://140.124.181.10:9000"
+        property "sonar.login", "a44ffb2691118216b170615603b83dec7c6f5cbf"
+    }
+}
+
 buildscript {
     repositories {
         jcenter()
@@ -17,6 +27,7 @@ buildscript {
 
     dependencies {
         classpath 'com.bmuschko:gradle-tomcat-plugin:2.5'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.7"
     }
 }
 
