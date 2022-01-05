@@ -137,6 +137,29 @@ public class AccountRepositoryImpl implements AccountRepository {
     }
 
     @Override
+    public boolean verifyGithubAccount(Account account) {
+        final String query = " SELECT id FROM user WHERE githubId = ?";
+        Account queryAccount = null;
+        try {
+            PreparedStatement ps = null;
+            ResultSet resultSet;
+            assert conn != null;
+            ps = conn.prepareStatement(query);
+
+            ps.setString(1,account.getGithubId());
+            resultSet = ps.executeQuery();
+            resultSet.last();
+            if(resultSet.getRow() == 1) {
+                return true;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
     public void deleteAccount(String id) {
         final String delete = "DELETE FROM user WHERE id=?";
         try{

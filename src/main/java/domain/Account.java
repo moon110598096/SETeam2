@@ -5,11 +5,21 @@ import java.util.List;
 import java.util.UUID;
 
 public class Account {
-    private String name;
     private String id;
-    private String password;
+    private String name;
     private String account;
+    private String password;
+    private String githubId;
     private List<String> projects;
+
+    public Account(){
+        this.id = UUID.randomUUID().toString();
+        this.name = null;
+        this.account = null;
+        this.password = null;
+        this.githubId = null;
+        projects = new ArrayList<>();
+    }
 
     public Account(String account, String password) {
         this.id = UUID.randomUUID().toString();
@@ -51,9 +61,15 @@ public class Account {
         return account;
     }
 
+    public String getGithubId() {
+        return githubId;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setGithubId(String id) { this.githubId = id; }
 
     public void addProject(String id){
         projects.add(id);

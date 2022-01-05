@@ -11,6 +11,7 @@ public interface AccountRepository {
     Account getAccountByAccountAndPassword(Account account);
     void updateAccountOwnProject(Account account);
     boolean verifyAccount(Account account);
+    boolean verifyGithubAccount(Account account);
     void deleteAccount(String id);
     void deleteAccountRelations(String id);
     boolean deleteProjectRelations(String userId, String projectId);
