@@ -23,9 +23,11 @@ export class OauthComponent implements OnInit {
 
       this.oAuthService.authorize(data).subscribe(
         request => {
-          console.log(request.toString());
+//           console.log(request.toString());
+//           console.log(request.redirect.toString());
 
-          this.router.navigateByUrl('homepage');
+
+          this.router.navigateByUrl(request.redirect.toString());
           sessionStorage.setItem('Username', request.name);
           sessionStorage.setItem('UserID', request.id);
         });

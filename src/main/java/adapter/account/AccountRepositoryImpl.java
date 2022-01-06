@@ -20,7 +20,7 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Override
     public void createAccount(Account account) {
         accounts.add(account);
-        final String insert = " INSERT INTO user(id, name, account, password) VALUES(?,?,?,?) ";
+        final String insert = " INSERT INTO user(id, name, account, password, githubId) VALUES(?,?,?,?,?) ";
         try {
             assert conn != null;
             PreparedStatement preparedStatement = conn.prepareStatement(insert);
@@ -28,6 +28,7 @@ public class AccountRepositoryImpl implements AccountRepository {
             preparedStatement.setString (2, account.getName());
             preparedStatement.setString (3, account.getAccount());
             preparedStatement.setString (4, account.getPassword());
+            preparedStatement.setString (5, account.getGithubId());
             preparedStatement.execute();
         }catch (Exception e){
             e.printStackTrace();
