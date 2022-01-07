@@ -91,6 +91,33 @@ public class AccountRepositoryImpl implements AccountRepository {
     }
 
     @Override
+    public Account getAccountByGithubId(Account account) {
+        final String query = " SELECT id, name, account, password FROM user WHERE githubId = ? ";
+        Account queryAccount = null;
+        try {
+            PreparedStatement ps = null;
+            ResultSet resultSet;
+            this.conn = Database.getConnection();
+            assert conn != null;
+            ps = conn.prepareStatement(query);
+
+            ps.setString(1,account.getGithubId());
+            resultSet = ps.executeQuery();
+            if(!resultSet.first()) return null;
+            queryAccount = new Account(
+                    resultSet.getString("id"),
+                    resultSet.getString("name"),
+                    resultSet.getString("account"),
+                    resultSet.getString("password")
+            );
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return queryAccount;
+    }
+
+    @Override
     public void updateAccountOwnProject(Account account) {
         if(!accounts.contains(account)) accounts.add(account);
         Account accountInDB = getAccountById(account.getId());

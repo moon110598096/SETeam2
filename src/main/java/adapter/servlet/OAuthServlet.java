@@ -46,34 +46,40 @@ public class OAuthServlet extends HttpServlet {
         String token = getToken(code);
         JSONObject user = getUser(token);
 
-        Account account = new Account();
+        Account fakeAccount = new Account();
         AccountRepository accountRepository = new AccountRepositoryImpl();
 
-        account.setName(user.getString("login"));
-        account.setGithubId(user.getString("id"));
+        fakeAccount.setName(user.getString("login"));
+        fakeAccount.setGithubId(user.getString("id"));
 
-        boolean githubAccountExist = accountRepository.verifyGithubAccount(account);
+        boolean githubAccountExist = accountRepository.verifyGithubAccount(fakeAccount);
 
         if (githubAccountExist){
+            Account account = accountRepository.getAccountByGithubId(fakeAccount);
+
             jsonObject.append("valid", "true");
             jsonObject.append("userName", account.getName());
             jsonObject.append("userId", account.getId());
             jsonObject.append("redirect", "choose-project");
         }
         else {
-            accountRepository.createAccount(account);
+            accountRepository.createAccount(fakeAccount);
 
-            githubAccountExist = accountRepository.verifyGithubAccount(account);
-
-            if (githubAccountExist){
-                jsonObject.append("valid", "true");
-                jsonObject.append("userName", account.getName());
-                jsonObject.append("userId", account.getId());
-                jsonObject.append("redirect", "choose-project");
-            }
-            else{
-                jsonObject.append("valid", "false");
-            }
+//            githubAccountExist = accountRepository.verifyGithubAccount(fakeAccount);
+//
+//            if (githubAccountExist){
+//                jsonObject.append("valid", "true");
+//                jsonObject.append("userName", fakeAccount.getName());
+//                jsonObject.append("userId", fakeAccount.getId());
+//                jsonObject.append("redirect", "choose-project");
+//            }
+//            else{
+//                jsonObject.append("valid", "false");
+//            }
+            jsonObject.append("valid", "true");
+            jsonObject.append("userName", fakeAccount.getName());
+            jsonObject.append("userId", fakeAccount.getId());
+//            jsonObject.append("redirect", "choose-project");
         }
 
         return jsonObject;

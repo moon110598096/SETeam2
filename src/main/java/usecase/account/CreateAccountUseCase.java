@@ -21,4 +21,15 @@ public class CreateAccountUseCase {
         output.setAccount(admin);
         accountRepository.createAccount(admin);
     }
+
+    public void executeOAuth(CreateAccountInput input, CreateAccountOutput output) {
+
+        Account admin = new Account(
+                input.getName(),
+                input.getGithubId()
+        );
+        output.setId(admin.getId());
+        output.setAccount(admin);
+        accountRepository.createAccount(admin);
+    }
 }

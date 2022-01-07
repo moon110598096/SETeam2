@@ -7,4 +7,6 @@ public interface CreateAccountInput {
     String getPassword();
     void setName(String name);
     String getName();
+    void setGithubId(String githubId);
+    String getGithubId();
 }

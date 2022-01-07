@@ -31,6 +31,21 @@ public class CreateAccountUseCaseTest {
         accountRepository.deleteAccount(account.getId());
     }
 
+    @Test
+    public void OAuth_Create_Account_Should_Success_Test(){
+        CreateAccountInput input = new CreateAccountInputImpl();
+        input.setGithubId("testGithubId");
+        input.setName("testGithubName");
+
+        CreateAccountOutput output = new CreateAccountOutputImpl();
+        CreateAccountUseCase createAccountUseCase = new CreateAccountUseCase(accountRepository);
+        createAccountUseCase.executeOAuth(input, output);
+        Account account = accountRepository.getAccountById(output.getId());
+        Assert.assertEquals("testGithubId", account.getGithubId());
+        Assert.assertEquals("testGithubId", account.getName());
+        accountRepository.deleteAccount(account.getId());
+    }
+
     //需要被移到別的地方
 //    因需先過一次sonarqube，暫先註解，之後再看為何爆炸
 //    @Test

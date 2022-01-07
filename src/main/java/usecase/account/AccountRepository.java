@@ -15,7 +15,5 @@ public interface AccountRepository {
     void deleteAccount(String id);
     void deleteAccountRelations(String id);
     boolean deleteProjectRelations(String userId, String projectId);
-
-
-
+    Account getAccountByGithubId(Account account);
 }
