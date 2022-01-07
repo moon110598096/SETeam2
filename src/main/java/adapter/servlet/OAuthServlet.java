@@ -56,8 +56,8 @@ public class OAuthServlet extends HttpServlet {
 
         if (githubAccountExist){
             jsonObject.append("valid", "true");
-            jsonObject.append("userName", account.getName());
-            jsonObject.append("userId", account.getId());
+            jsonObject.append("name", account.getName());
+            jsonObject.append("id", account.getId());
             jsonObject.append("redirect", "choose-project");
         }
         else {
@@ -67,8 +67,8 @@ public class OAuthServlet extends HttpServlet {
 
             if (githubAccountExist){
                 jsonObject.append("valid", "true");
-                jsonObject.append("userName", account.getName());
-                jsonObject.append("userId", account.getId());
+                jsonObject.append("name", account.getName());
+                jsonObject.append("id", account.getId());
                 jsonObject.append("redirect", "choose-project");
             }
             else{
