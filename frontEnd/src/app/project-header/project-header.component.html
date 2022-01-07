@@ -20,33 +20,33 @@
 </head>
 
 <section class="menu cid-s48OLK6784" once="menu" id="menu1-h">
-  <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-    <div class="container">
-      <div class="navbar-brand">
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+      <div class="container">
+        <div class="navbar-brand">
                     <span class="navbar-logo">
                     <a href={{ProjectOverviewpageurl}}>
                         <img src="./assets/images/analysisLogo.png" alt="Mobirise" style="height: 3.8rem;">
                     </a>
                 </span>
-        <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-7" href="choose-project">GRAS</a></span>
+<!--                  <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-7" href="choose-project">GRAS</a></span>-->
+          <div class="logotext">GRAS</div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
+            <li class="nav-item"><a class="nav-link link text-black display-4" (click)="NavitoChooseProject()">My Project</a></li>
+            <li class="nav-item"><a class="nav-link link text-black display-4" (click)="NavitoCommitTrend()">Commit Trend</a></li>
+            <li class="nav-item"><a class="nav-link link text-black display-4" (click)="NavitoIssueTrack()">Issue Track</a></li>
+            <li class="nav-item"><a class="nav-link link text-black display-4" (click)="NavitoSonarQube()">SonarQube</a></li>
+            <li class="nav-item ">
+              <a class="nav-link link text-black display-4">
+                <span class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"><br></span>
+                <span id="Username" a >{{ UserName }}</span></a>
+            </li>
+            <li class="nav-item"><a class="nav-link link text-black display-4" (click)="NavitoLogout()">
+              <span class="mobi-mbri mobi-mbri-logout mbr-iconfont mbr-iconfont-btn"></span></a></li>
+          </ul>
+        </div>
       </div>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-          <li class="nav-item"><a class="nav-link link text-black display-4" (click)="NavitoChooseProject()">My Project</a></li>
-          <li class="nav-item"><a class="nav-link link text-black display-4" (click)="NavitoCommitTrend()">Commit Trend</a></li>
-          <li class="nav-item"><a class="nav-link link text-black display-4" (click)="NavitoIssueTrack()">Issue Track</a></li>
-          <li class="nav-item"><a class="nav-link link text-black display-4" (click)="NavitoSonarQube()">SonarQube</a></li>
-          <li class="nav-item ">
-            <a class="nav-link link text-black display-4">
-              <span class="mobi-mbri mobi-mbri-user-2 mbr-iconfont mbr-iconfont-btn"><br></span>
-              <span id="Username" a >{{ UserName }}</span></a>
-          </li>
-          <li class="nav-item"><a class="nav-link link text-black display-4" (click)="NavitoLogout()">
-            <span class="mobi-mbri mobi-mbri-logout mbr-iconfont mbr-iconfont-btn"></span></a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
+    </nav>
 </section>
 
