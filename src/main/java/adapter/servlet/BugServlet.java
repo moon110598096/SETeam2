@@ -22,7 +22,7 @@ public class BugServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         JSONObject requestBody = new JSONObject(request.getReader().readLine());
         String component = requestBody.getString("component");
-        JSONObject bugInfo = getBugInfoJsonArray(component);
+        JSONObject bugInfo = getBugInfoJsonObject(component);
         request.setAttribute("bug_info", bugInfo);
 
         response.setContentType("text/json");
@@ -34,7 +34,7 @@ public class BugServlet extends HttpServlet {
         out.close();
     }
 
-    private JSONObject getBugInfoJsonArray(String component) throws IOException {
+    private JSONObject getBugInfoJsonObject(String component) throws IOException {
         String apiUrl = "http://140.124.184.179:9000/api/measures/component?component=" + component + "&metricKeys=bugs";
         SonarQubeRepositoryAccessor accessor = new SonarQubeRepositoryAccessor();
         JSONArray jsonArray = accessor.httpGet(apiUrl);
