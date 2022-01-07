@@ -37,7 +37,7 @@ public class AccountRepositoryImpl implements AccountRepository {
 
     @Override
     public Account getAccountById(String id) {
-        final String query = " SELECT name, account, password FROM user WHERE id=?";
+        final String query = " SELECT name, account, password, githubId FROM user WHERE id=?";
         Account account;
         try{
             assert conn!= null;
@@ -50,7 +50,8 @@ public class AccountRepositoryImpl implements AccountRepository {
                     id,
                     resultSet.getString("name"),
                     resultSet.getString("account"),
-                    resultSet.getString("password")
+                    resultSet.getString("password"),
+                    resultSet.getString("githubId")
             );
             for(String projectId : getAccountProjects(id)){
                 account.addProject(projectId);
@@ -64,7 +65,7 @@ public class AccountRepositoryImpl implements AccountRepository {
 
     @Override
     public Account getAccountByAccountAndPassword(Account account) {
-        final String query = " SELECT id, name, account, password FROM user WHERE account = ? AND password = ? ";
+        final String query = " SELECT id, name, account, password, githubId FROM user WHERE account = ? AND password = ? ";
         Account queryAccount = null;
         try {
             PreparedStatement ps = null;
@@ -81,7 +82,8 @@ public class AccountRepositoryImpl implements AccountRepository {
                     resultSet.getString("id"),
                     resultSet.getString("name"),
                     resultSet.getString("account"),
-                    resultSet.getString("password")
+                    resultSet.getString("password"),
+                    resultSet.getString("githubId")
             );
 
         } catch (SQLException e) {
@@ -92,7 +94,7 @@ public class AccountRepositoryImpl implements AccountRepository {
 
     @Override
     public Account getAccountByGithubId(Account account) {
-        final String query = " SELECT id, name, account, password FROM user WHERE githubId = ? ";
+        final String query = " SELECT id, name, account, password, githubId FROM user WHERE githubId = ? ";
         Account queryAccount = null;
         try {
             PreparedStatement ps = null;
@@ -108,7 +110,8 @@ public class AccountRepositoryImpl implements AccountRepository {
                     resultSet.getString("id"),
                     resultSet.getString("name"),
                     resultSet.getString("account"),
-                    resultSet.getString("password")
+                    resultSet.getString("password"),
+                    resultSet.getString("githubId")
             );
 
         } catch (SQLException e) {

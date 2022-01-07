@@ -8,4 +8,8 @@ public interface CreateAccountOutput {
     Account getAccount();
     void setId(String id);
     String getId();
+    void setName(String name);
+    String getName();
+    void setGithubId(String githubId);
+    String getGithubId();
 }

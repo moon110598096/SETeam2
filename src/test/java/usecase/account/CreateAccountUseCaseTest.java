@@ -42,7 +42,7 @@ public class CreateAccountUseCaseTest {
         createAccountUseCase.executeOAuth(input, output);
         Account account = accountRepository.getAccountById(output.getId());
         Assert.assertEquals("testGithubId", account.getGithubId());
-        Assert.assertEquals("testGithubId", account.getName());
+        Assert.assertEquals("testGithubName", account.getName());
         accountRepository.deleteAccount(account.getId());
     }
 

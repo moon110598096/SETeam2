@@ -45,6 +45,15 @@ public class Account {
         projects = new ArrayList<>();
     }
 
+    public Account(String id, String name, String account, String password, String githubId) {
+        this.id =id;
+        this.name = name;
+        this.password = password;
+        this.account = account;
+        this.githubId = githubId;
+        projects = new ArrayList<>();
+    }
+
     public String getName() {
         return name;
     }

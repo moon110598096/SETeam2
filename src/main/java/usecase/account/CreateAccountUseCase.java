@@ -24,12 +24,13 @@ public class CreateAccountUseCase {
 
     public void executeOAuth(CreateAccountInput input, CreateAccountOutput output) {
 
-        Account admin = new Account(
-                input.getName(),
-                input.getGithubId()
-        );
+        Account admin = new Account();
+        admin.setName(input.getName());
+        admin.setGithubId(input.getGithubId());
+
         output.setId(admin.getId());
-        output.setAccount(admin);
+        output.setName(admin.getName());
+        output.setGithubId(admin.getGithubId());
         accountRepository.createAccount(admin);
     }
 }

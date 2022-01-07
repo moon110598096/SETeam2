@@ -5,6 +5,8 @@ import usecase.account.CreateAccountOutput;
 
 public class CreateAccountOutputImpl implements CreateAccountOutput {
     private String id;
+    private String githubId;
+
     @Override
     public void setAccount(Account admin) {
 
@@ -24,4 +26,15 @@ public class CreateAccountOutputImpl implements CreateAccountOutput {
     public String getId() {
         return this.id;
     }
+
+    @Override
+    public void setName(String name){  }
+
+    @Override
+    public String getName(){ return  null; }
+
+    @Override
+    public void setGithubId(String githubId){ this.githubId = githubId; }
+    @Override
+    public String getGithubId(){ return this.githubId; }
 }
