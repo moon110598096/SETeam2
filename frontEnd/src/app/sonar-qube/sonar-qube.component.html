@@ -6,7 +6,7 @@
   </div>
   <div class="col-8">
     <br>
-    <h2 style="border-bottom-style: dotted;">SONAR QUBE</h2>
+    <h1 style="border-bottom-style: dotted;">SONAR QUBE</h1>
 <!--    <img src="./assets/images/sonarqubelogo.png" width="566px" height="207.5px">-->
     <table class="tg">
       <thead>
@@ -21,7 +21,7 @@
         <th class="tg-bug">{{bugCount}}</th>
       </tr>
       <tr>
-        <th class="tg-v38z"></th>
+        <th class="tg-v38z"><div *ngFor="let s of bugsInfo.split('\n')">{{s}}</div></th>
         <th class="tg-v38z"></th>
       </tr>
       <tr>
@@ -29,12 +29,16 @@
         <td class="tg-smell">{{codeSmellsCount}}</td>
       </tr>
       <tr>
-        <th class="tg-v38z"></th>
+        <th class="tg-v38z"><div *ngFor="let s of codeSmellInfo.split('\n')">{{s}}</div></th>
         <th class="tg-v38z"></th>
       </tr>
       <tr>
         <td class="tg-vulnerability"><p style = "margin:10px"><img src="./assets/images/vulnerability.png" width="50px" height="50px">&nbsp;VULNERABILITY</p></td>
         <td class="tg-vulnerability">{{VulnerabilityCount}}</td>
+      </tr>
+      <tr>
+        <th class="tg-v38z"><div *ngFor="let s of vulnerabilityInfo.split('\n')">{{s}}</div></th>
+        <th class="tg-v38z"></th>
       </tr>
       </tbody>
     </table>

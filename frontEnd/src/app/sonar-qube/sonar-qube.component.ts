@@ -14,6 +14,10 @@ export class SonarQubeComponent implements OnInit {
   codeSmellsCount = -1;
   VulnerabilityCount = -1;
   component = "";
+  bugsInfo = "";
+  codeSmellInfo = "";
+  vulnerabilityInfo = "";
+
   constructor(private sonarQubeService: SonarQubeService) {
   }
 
@@ -21,6 +25,19 @@ export class SonarQubeComponent implements OnInit {
 //     this.component = window.sessionStorage.getItem('repoName');
     this.component = "HappyCamp";
     this.getSonarqubeInfo();
+    this.createInfo();
+  }
+
+  createInfo(){
+    this.bugsInfo += "Use try-with-resources or close this \"PreparedStatement\" in a \"finally\" clause";
+
+    this.codeSmellInfo += "Use a logger to log this exception. \n";
+    this.codeSmellInfo += "Add a \"try/catch\" block for \"getWriter\".\n";
+    this.codeSmellInfo += "Add a \"try/catch\" block for \"getCodeSmellInfoJsonArray\".\n";
+    this.codeSmellInfo += "Add a \"try/catch\" block for \"getString\".\n";
+
+    this.vulnerabilityInfo += "Remove this unused import 'java.util.Objects'.\n";
+    this.vulnerabilityInfo += "Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.\n";
   }
 
   getSonarqubeInfo() {
@@ -53,6 +70,5 @@ export class SonarQubeComponent implements OnInit {
           this.bugCount = this.datas.value;
         }
       );
-
   }
 }
