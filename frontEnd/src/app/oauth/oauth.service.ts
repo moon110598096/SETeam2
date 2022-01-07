@@ -15,10 +15,6 @@ export class OauthService {
       const options = {
         headers
       };
-      console.log("test");
-
-      console.log("options: ",options);
       return this.httpClient.post<any>('/GitRepositoryAnalysisSystem/OAuthorize', body, options);
-      console.log("post done");
     }
 }

@@ -8,15 +8,11 @@ import {Router, ActivatedRoute} from '@angular/router';
 
 })
 export class AnalysisComponent implements OnInit {
-  imgURL = 'https://assets.juksy.com/files/articles/53296/800x_100_w-5720399b28484.jpg';
-  projectName = 'WWE2020';
   owner: any;
   repoName: any;
   RepoMemberCounts = 50;
 
-
   constructor(private router: Router, private activerouter: ActivatedRoute) {
-
 
   }
 

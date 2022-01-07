@@ -49,13 +49,13 @@ export class ChooseRepositoryComponent implements OnInit {
 
     }
 
-  goToAnalysisPage(event) {
+  goToCommitTrendPage(event) {
     const chosenRepoName: string = event.target.id.toString();
     const chosenRepoIndex = this.repoNames.findIndex((element) => (element) == chosenRepoName);
     sessionStorage.setItem('repoName', chosenRepoName);
     sessionStorage.setItem('owner', this.owner[chosenRepoIndex]);
 
-    this.router.navigate(['analysis']);
+    this.router.navigate(['commit-trend']);
   }
 
   // tslint:disable-next-line:typedef

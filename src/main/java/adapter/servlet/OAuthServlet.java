@@ -1,6 +1,8 @@
 package adapter.servlet;
 
 import adapter.account.AccountRepositoryImpl;
+import adapter.account.CreateAccountInputImpl;
+import adapter.account.CreateAccountOutputImpl;
 import domain.Account;
 import org.json.JSONObject;
 
@@ -17,7 +19,11 @@ import java.util.Locale;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.junit.Assert;
 import usecase.account.AccountRepository;
+import usecase.account.CreateAccountInput;
+import usecase.account.CreateAccountOutput;
+import usecase.account.CreateAccountUseCase;
 
 @WebServlet(urlPatterns = "/OAuthorize", name = "OAuthServlet")
 public class OAuthServlet extends HttpServlet {
@@ -49,7 +55,6 @@ public class OAuthServlet extends HttpServlet {
         Account fakeAccount = new Account();
         AccountRepository accountRepository = new AccountRepositoryImpl();
 
-        fakeAccount.setName(user.getString("login"));
         fakeAccount.setGithubId(user.getString("id"));
 
         boolean githubAccountExist = accountRepository.verifyGithubAccount(fakeAccount);
@@ -58,28 +63,22 @@ public class OAuthServlet extends HttpServlet {
             Account account = accountRepository.getAccountByGithubId(fakeAccount);
 
             jsonObject.append("valid", "true");
-            jsonObject.append("userName", account.getName());
-            jsonObject.append("userId", account.getId());
+            jsonObject.append("name", account.getName());
+            jsonObject.append("id", account.getId());
             jsonObject.append("redirect", "choose-project");
         }
         else {
-            accountRepository.createAccount(fakeAccount);
+            CreateAccountInput input = new CreateAccountInputImpl();
+            input.setGithubId(user.getString("id"));
+            input.setName(user.getString("login"));
 
-//            githubAccountExist = accountRepository.verifyGithubAccount(fakeAccount);
-//
-//            if (githubAccountExist){
-//                jsonObject.append("valid", "true");
-//                jsonObject.append("userName", fakeAccount.getName());
-//                jsonObject.append("userId", fakeAccount.getId());
-//                jsonObject.append("redirect", "choose-project");
-//            }
-//            else{
-//                jsonObject.append("valid", "false");
-//            }
+            CreateAccountOutput output = new CreateAccountOutputImpl();
+            CreateAccountUseCase createAccountUseCase = new CreateAccountUseCase(accountRepository);
+            createAccountUseCase.executeOAuth(input, output);
             jsonObject.append("valid", "true");
             jsonObject.append("userName", fakeAccount.getName());
             jsonObject.append("userId", fakeAccount.getId());
-//            jsonObject.append("redirect", "choose-project");
+            jsonObject.append("redirect", "choose-project");
         }
 
         return jsonObject;
