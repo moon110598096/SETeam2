@@ -4,12 +4,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import usecase.SonarQubeRepositoryAccessor;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet(urlPatterns = "/CodeSmell", name = "CodeSmellServlet")
 public class CodeSmellsServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
@@ -18,8 +20,9 @@ public class CodeSmellsServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        JSONObject requestBody = (JSONObject) request.getAttribute("repoInfo");
+        JSONObject requestBody = new JSONObject(request.getReader().readLine());
         String component = requestBody.getString("component");
+        System.out.println(component);
         JSONObject code_smellInfo = getCodeSmellInfoJsonArray(component);
         request.setAttribute("code_smell_info", code_smellInfo);
 
@@ -28,6 +31,7 @@ public class CodeSmellsServlet extends HttpServlet{
         PrintWriter out = response.getWriter();
         out.println(code_smellInfo);
         System.out.println(code_smellInfo);
+        System.out.println("test");
         out.flush();
         out.close();
     }

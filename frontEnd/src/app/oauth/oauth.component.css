@@ -1,0 +1,24 @@
+.loading {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:1800px;
+      height:720px;
+      position: relative;
+      text-align: center;
+      color: black;
+}
+
+.loading-text {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+    max-height: 50%;
+    max-width: 50%;
+    width: auto;
+    height: auto;
+}

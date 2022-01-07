@@ -1,14 +1,35 @@
 <app-project-header></app-project-header>
 <meta charset="UTF-8" />
 <div class="row" style="padding:10px 100px 10px 100px;">
-  <div class="col-4">
+  <div class="col-2">
     <app-repo-imformation></app-repo-imformation>
   </div>
-
   <div class="col-8">
     <br>
-    <h2>SONAR QUBE</h2>
-    <img src=".\assets\images\yee.png" with="600" heigh="400" alt="一張圖片">
+    <h2 style="border-bottom-style: dotted;">SONAR QUBE</h2>
+<!--    <img src="./assets/images/sonarqubelogo.png" width="566px" height="207.5px">-->
+    <table class="tg">
+      <thead>
+      </thead>
+      <tbody>
+      <tr>
+        <th class="tg-v38z"></th>
+        <th class="tg-v38z"></th>
+      </tr>
+      <tr>
+        <th class="tg-v38z"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./assets/images/bug.png" width="50px" height="50px">&nbsp;BUG</p></th>
+        <th class="tg-v38z">{{bugCount}}</th>
+      </tr>
+      <tr>
+        <td class="tg-v38z"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./assets/images/codesmell.png" width="50px" height="50px">&nbsp;CODE SMELL</p></td>
+        <td class="tg-v38z">{{codeSmellsCount}}</td>
+      </tr>
+      <tr>
+        <td class="tg-v38z"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./assets/images/vulnerability.png" width="50px" height="50px">&nbsp;VULNERABILITY</p></td>
+        <td class="tg-v38z">{{VulnerabilityCount}}</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 <app-footer></app-footer>

@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Locale;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import usecase.account.AccountRepository;
@@ -170,7 +172,7 @@ public class OAuthServlet extends HttpServlet {
                 result.append(line);
             }
 
-            System.out.println("JSON Parser"+ "result: " + result.toString());
+            System.out.println("JSON Parser "+ "result: " + result.toString());
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -180,6 +182,7 @@ public class OAuthServlet extends HttpServlet {
         // try parse the string to a JSON object
         try {
             jObj = new JSONObject(result.toString());
+            System.out.println(jObj.toString());
         } catch (JSONException e) {
             System.out.println("JSON Parser " + "Error parsing data " + e.toString());
         }
