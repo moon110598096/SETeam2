@@ -27,6 +27,9 @@ export class ProjectHeaderComponent implements OnInit {
   NavitoCommitTrend(){
     this.redirectTo("commit-trend");
   }
+  NavitoChooseProject(){
+      this.redirectTo("choose-project");
+  }
 
   NavitoIssueTrack(){
     this.redirectTo("issue-track");

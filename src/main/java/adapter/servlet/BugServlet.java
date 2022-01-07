@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet(urlPatterns = "/Bug", name = "BugServlet")
 public class BugServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
@@ -19,7 +20,7 @@ public class BugServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        JSONObject requestBody = (JSONObject) request.getAttribute("repoInfo");
+        JSONObject requestBody = new JSONObject(request.getReader().readLine());
         String component = requestBody.getString("component");
         JSONObject bugInfo = getBugInfoJsonObject(component);
         request.setAttribute("bug_info", bugInfo);

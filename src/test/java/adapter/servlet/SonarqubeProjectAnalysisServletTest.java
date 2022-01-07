@@ -5,30 +5,36 @@ import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
+
+import static org.mockito.Mockito.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
-public class SonarqubeProjectAnalysisServletTest {
-    private HttpServletRequest request;
+public class SonarqubeProjectAnalysisServletTest extends Mockito {
+    private MockHttpServletRequest request;
     private HttpServletResponse response;
     private BugServlet bugServlet;
     private VulnerabilityServlet vulnerabilityServlet;
     private CodeSmellsServlet codeSmellsServlet;
+    private JSONObject obj;
 
     @Before
-    public void setUp(){
+    public void setUp() throws IOException {
         request = new MockHttpServletRequest();
         response = new MockHttpServletResponse();
         bugServlet = new BugServlet();
         vulnerabilityServlet = new VulnerabilityServlet();
         codeSmellsServlet = new CodeSmellsServlet();
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("component", "HappyCamp");
-        request.setAttribute("repoInfo", jsonObject);
+        obj = new JSONObject();
+        obj.put("component","HappyCamp");
+        request.addHeader("Content-Type","text/json");
+        request.setContent("{component:HappyCamp}".getBytes(StandardCharsets.UTF_8));
     }
 
     @Test
