@@ -5,18 +5,15 @@ import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
-
-import static org.mockito.Mockito.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-public class SonarqubeProjectAnalysisServletTest extends Mockito {
+public class SonarqubeProjectAnalysisServletTest  {
     private MockHttpServletRequest request;
     private HttpServletResponse response;
     private BugServlet bugServlet;
