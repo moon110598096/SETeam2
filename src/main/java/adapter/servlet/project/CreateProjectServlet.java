@@ -1,4 +1,4 @@
-package adapter.servlet;
+package adapter.servlet.project;
 
 
 import adapter.account.AccountRepositoryImpl;

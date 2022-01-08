@@ -1,4 +1,4 @@
-package adapter.servlet;
+package adapter.servlet.gitrepository;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

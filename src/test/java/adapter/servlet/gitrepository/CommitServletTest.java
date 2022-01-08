@@ -1,4 +1,4 @@
-package adapter.servlet;
+package adapter.servlet.gitrepository;
 
 import adapter.servlet.gitrepository.CommitServlet;
 import org.json.JSONObject;

@@ -1,4 +1,4 @@
-package adapter.servlet;
+package adapter.servlet.gitrepository;
 
 import adapter.gitrepository.GitRepositoryRepositoryImpl;
 import domain.GitRepository;

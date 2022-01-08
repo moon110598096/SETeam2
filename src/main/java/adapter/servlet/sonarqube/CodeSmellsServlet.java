@@ -1,4 +1,4 @@
-package adapter.servlet;
+package adapter.servlet.sonarqube;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

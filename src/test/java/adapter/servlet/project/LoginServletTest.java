@@ -1,12 +1,8 @@
-package adapter.servlet;
+package adapter.servlet.project;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.junit.Assert;
+import adapter.servlet.project.LoginServlet;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockHttpServletResponse;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

@@ -1,4 +1,4 @@
-package adapter.servlet;
+package adapter.servlet.gitrepository;
 
 import adapter.account.AccountRepositoryImpl;
 import adapter.gitrepository.CreateGitRepositoryInputImpl;
