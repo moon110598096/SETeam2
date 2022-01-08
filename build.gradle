@@ -3,8 +3,9 @@ apply plugin: 'war'
 apply plugin: 'idea'
 apply plugin: 'com.bmuschko.tomcat'
 apply plugin: "org.sonarqube"
+apply plugin: "jacoco"
 
-group 'org.example'
+//group 'org.example'
 version '1.0-SNAPSHOT'
 
 compileJava.options.encoding = 'UTF-8'
@@ -12,12 +13,24 @@ compileTestJava.options.encoding = 'UTF-8'
 
 sourceCompatibility = 1.8
 
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
+
+test.finalizedBy jacocoTestReport
+
 sonarqube {
     properties {
-        property "projectKey", "islab1221"
+        property "projectKey", "GitRepositoryAnalysisSystem"
         property "sonar.host.url", "http://140.124.181.10:9000"
         property "sonar.login", "a44ffb2691118216b170615603b83dec7c6f5cbf"
     }
+}
+
+tasks.named('sonarqube').configure {
+    dependsOn test
 }
 
 buildscript {
