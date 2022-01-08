@@ -93,7 +93,7 @@
   word-break:normal;
  }
 
-.tg .tg-bug {
+.tg .tg-bug-name {
   padding: 10px 10px 10px 50px;
   background-color: #F2866D;
   font-family:Arial, Helvetica, sans-serif !important;
@@ -102,7 +102,26 @@
   vertical-align:center
 }
 
-.tg .tg-smell {
+.tg .tg-bug-cnt {
+  padding: 10px 10px 10px 50px;
+  background-color: #F2866D;
+  font-family:Arial, Helvetica, sans-serif !important;
+  font-size:36px;
+  text-align:right;
+  vertical-align:center
+}
+
+.tg .tg-smell-cnt {
+  padding: 10px 10px 10px 50px;
+  background-color: #9DB5F2;
+  font-family:Arial, Helvetica, sans-serif !important;
+  font-size:36px;
+  text-align:right;
+  vertical-align:center;
+  valign:middle;
+}
+
+.tg .tg-smell-name {
   padding: 10px 10px 10px 50px;
   background-color: #9DB5F2;
   font-family:Arial, Helvetica, sans-serif !important;
@@ -112,7 +131,16 @@
   valign:middle;
 }
 
-.tg .tg-vulnerability {
+.tg .tg-vulnerability-cnt {
+  padding: 10px 10px 10px 50px;
+  background-color: #C7F285;
+  font-family:Arial, Helvetica, sans-serif !important;
+  font-size:36px;
+  text-align:right;
+  vertical-align:center
+}
+
+.tg .tg-vulnerability-name {
   padding: 10px 10px 10px 50px;
   background-color: #C7F285;
   font-family:Arial, Helvetica, sans-serif !important;
@@ -128,3 +156,12 @@
   text-align:left;
   vertical-align:center
 }
+
+.tg .tg-v38z .detailButton {
+ background-color: transparent;
+ border: none;
+ float:left;
+ font-size:14px;
+ font-family:Arial
+}
+

@@ -38,4 +38,15 @@ export class SonarQubeService {
     };
     return this.httpClient.post<any>('/GitRepositoryAnalysisSystem/Vulnerability', body, options);
   }
+
+  public getSonarQubeIssueInfo(body) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'text/json'
+    });
+    const options = {
+      headers
+    };
+    return this.httpClient.post<any>('/GitRepositoryAnalysisSystem/SonarIssue', body, options);
+  }
+
 }
