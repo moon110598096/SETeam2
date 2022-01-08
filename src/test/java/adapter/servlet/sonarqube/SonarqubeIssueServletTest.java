@@ -27,7 +27,7 @@ public class SonarqubeIssueServletTest {
 
     }
     @Test
-    public void GetIssueMessage() throws IOException {
+    public void GetIssueMessageTest() throws IOException {
         issueServlet.doPost(request, response);
         JSONObject jsonObject = (JSONObject) request.getAttribute("issue_message_info");
         System.out.println(jsonObject);
