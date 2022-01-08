@@ -23,7 +23,8 @@ public class SonarQubeRepositoryAccessor {
     }
 
     public JSONArray httpGet(String url) throws IOException {
-        String userCredentials = "admin:islab1221";
+//        String userCredentials = "admin:islab1221";
+        String userCredentials = "admin:admin";
         String basicAuth = "Basic " + new String(Base64.getEncoder().encode(userCredentials.getBytes()));
 
         httpConnection = getConnection(url);

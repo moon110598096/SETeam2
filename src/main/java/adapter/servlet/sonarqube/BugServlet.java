@@ -1,4 +1,4 @@
-package adapter.servlet;
+package adapter.servlet.sonarqube;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -13,10 +13,10 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/Bug", name = "BugServlet")
 public class BugServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-
-    }
+//    @Override
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+//
+//    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -35,8 +35,8 @@ public class BugServlet extends HttpServlet {
     }
 
     private JSONObject getBugInfoJsonObject(String component) throws IOException {
-        String apiUrl = "http://140.124.184.179:9000/api/measures/component?component=" + component + "&metricKeys=bugs";
-//        String apiUrl = "http://140.124.181.10:9000/api/measures/component?component=" + component + "&metricKeys=bugs";
+//        String apiUrl = "http://140.124.184.179:9000/api/measures/component?component=" + component + "&metricKeys=bugs";
+        String apiUrl = "http://140.124.181.10:9000/api/measures/component?component=" + component + "&metricKeys=bugs";
         SonarQubeRepositoryAccessor accessor = new SonarQubeRepositoryAccessor();
         JSONArray jsonArray = accessor.httpGet(apiUrl);
         JSONObject componentJSONObject = jsonArray.getJSONObject(0).getJSONObject("component");
