@@ -23,7 +23,8 @@ export class SonarQubeComponent implements OnInit {
 
   ngOnInit(): void {
 //     this.component = window.sessionStorage.getItem('repoName');
-    this.component = "HappyCamp";
+    this.component = "GitRepositoryAnalysisSystem";
+    alert(this.component);
     this.getSonarqubeInfo();
     this.createInfo();
   }
