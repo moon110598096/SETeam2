@@ -37,6 +37,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {SonarQubeComponent} from './sonar-qube/sonar-qube.component';
 import { ProjectHeaderComponent } from './project-header/project-header.component';
 import { OauthComponent } from './oauth/oauth.component';
+import { SonarQubeHistoryComponent } from './sonar-qube-history/sonar-qube-history.component';
 
 
 
@@ -68,6 +69,7 @@ import { OauthComponent } from './oauth/oauth.component';
     SonarQubeComponent,
     ProjectHeaderComponent,
     OauthComponent,
+    SonarQubeHistoryComponent,
 
   ],
   imports: [ // 宣告要匯入此模組的外部模組

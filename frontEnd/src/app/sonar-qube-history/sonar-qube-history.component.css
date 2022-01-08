@@ -1,0 +1,130 @@
+.example-headers-align .mat-expansion-panel-header-description.mat-toolbar,
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0  ;
+  justify-content: space-between;
+}
+
+.example-headers-align .mat-expansion-panel{
+  padding: 14px;
+}
+
+.example-headers-align .mat-expansion-panel-header{
+  font-size: 16px;
+}
+
+.dateP{
+  width: 100%;
+  justify-content: space-between;
+  color: red;
+}
+
+.example-headers-align .mat-expansion-panel-header-title{
+  align-items: center;
+  font-style: oblique;
+  color: green;
+  font-size: 24px;
+}
+
+.sonar-button {
+  float:right;
+  background-color:transparent;
+  border:3px black double;
+  font-size: 16px;
+  font-family: 微軟正黑體;
+}
+
+.status{
+  align-items: center;
+  color: red;
+  border-radius: 10px;
+}
+
+.bodyPre{
+  font-size: 16px;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  font-size: 28px;
+  color: #005cbf;
+}
+
+.mat-basic-chip{
+  padding: 5px 0px;
+  border-radius: 10px;
+  flex-basis: 0;
+  font-size: 16px;
+  color: black;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.personal-avatar{
+  border-radius: 50%;
+}
+
+.tg {
+  border:1px;
+  width:100%;
+}
+
+.tg td {
+  font-family:Arial, sans-serif;
+  font-size:14px;
+  overflow:hidden;
+  padding:10px 10px;
+  word-break:normal;
+}
+
+.tg th {
+  font-family:Arial, sans-serif;
+  font-size:14px;
+  font-weight:normal;
+  overflow:hidden;
+  padding:10px 10px;
+  word-break:normal;
+ }
+
+.tg .tg-bug {
+  padding: 10px 10px 10px 50px;
+  background-color: #F2866D;
+  font-family:Arial, Helvetica, sans-serif !important;
+  font-size:36px;
+  text-align:left;
+  vertical-align:center
+}
+
+.tg .tg-smell {
+  padding: 10px 10px 10px 50px;
+  background-color: #9DB5F2;
+  font-family:Arial, Helvetica, sans-serif !important;
+  font-size:36px;
+  text-align:left;
+  vertical-align:center;
+  valign:middle;
+}
+
+.tg .tg-vulnerability {
+  padding: 10px 10px 10px 50px;
+  background-color: #C7F285;
+  font-family:Arial, Helvetica, sans-serif !important;
+  font-size:36px;
+  text-align:left;
+  vertical-align:center
+}
+
+.tg .tg-v38z {
+  padding: 10px 10px 10px 50px;
+  font-family:Arial, Helvetica, sans-serif !important;
+  font-size:24px;
+  text-align:left;
+  vertical-align:center
+}
