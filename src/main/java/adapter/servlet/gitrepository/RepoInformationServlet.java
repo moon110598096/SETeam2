@@ -17,10 +17,10 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/repoInfo", name = "RepoInformationServlet")
 public class RepoInformationServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
+//    @Override
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//
+//    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

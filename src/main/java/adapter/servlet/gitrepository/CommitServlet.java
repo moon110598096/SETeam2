@@ -106,10 +106,10 @@ public class CommitServlet extends HttpServlet {
         return totalStatsResult;
     }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-
-    }
+//    @Override
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+//
+//    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
