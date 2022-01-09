@@ -24,24 +24,23 @@
       <tr>
           <th class="tg-bug-name"><p style = "margin:10px;"><img src="./assets/images/bug.png" width="50px" height="50px">&nbsp;BUG</p></th>
           <th class="tg-bug-cnt">{{bugCount}}<button style="background-color:transparent;border:none;font-size:16;">▼</button></th>
-<!--          <th class="tg-bug">></th>-->
       </tr>
       <tr>
-        <th class="tg-v38z"><div *ngFor="let s of bugsInfo.split('\n')">{{s}}</div></th>
+        <th class="tg-v38z"><div *ngFor="let s of bugsInfo">{{s}}</div></th>
       </tr>
       <tr>
         <td class="tg-smell-name"><p style = "margin:10px"><img src="./assets/images/codesmell.png" width="50px" height="50px">&nbsp;CODE SMELL</p></td>
         <td class="tg-smell-cnt">{{codeSmellsCount}}<button style="background-color:transparent;border:none;font-size:16;">▼</button></td>
       </tr>
       <tr>
-        <th class="tg-v38z"><div *ngFor="let s of codeSmellInfo.split('\n')">{{s}}</div></th>
+        <th class="tg-v38z"><div *ngFor="let s of codeSmellInfo">{{s}}</div></th>
       </tr>
       <tr>
         <td class="tg-vulnerability-name"><p style = "margin:10px"><img src="./assets/images/vulnerability.png" width="50px" height="50px">&nbsp;VULNERABILITY</p></td>
         <td class="tg-vulnerability-cnt">{{VulnerabilityCount}}<button style="background-color:transparent;border:none;font-size:16;">▼</button></td>
       </tr>
       <tr>
-        <th class="tg-v38z"><div *ngFor="let s of vulnerabilityInfo.split('\n')">{{s}}</div></th>
+        <th class="tg-v38z"><div *ngFor="let show_vulnerabilityInfo of vulnerabilityInfo;">{{show_vulnerabilityInfo}}</div></th>
       </tr>
       </tbody>
     </table>

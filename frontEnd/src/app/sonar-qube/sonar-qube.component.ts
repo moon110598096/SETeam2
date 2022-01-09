@@ -11,13 +11,13 @@ import {Router, ActivatedRoute} from '@angular/router';
 export class SonarQubeComponent implements OnInit {
   datas : any;
   issueDatas : any;
-  bugCount = -1;
-  codeSmellsCount = -1;
-  VulnerabilityCount = -1;
+  bugCount = 0;
+  codeSmellsCount = 0;
+  VulnerabilityCount = 0;
   component = "";
-  bugsInfo = "";
-  codeSmellInfo = "";
-  vulnerabilityInfo = "";
+  bugsInfo = [];
+  codeSmellInfo = [];
+  vulnerabilityInfo = [];
 
   constructor(private router: Router,private sonarQubeService: SonarQubeService) {
 
@@ -71,7 +71,17 @@ export class SonarQubeComponent implements OnInit {
       this.sonarQubeService.getSonarQubeIssueInfo(IssueRepoInfo).subscribe(
         request => {
           this.issueDatas = request;
-          alert(this.issueDatas.vulnerabilities[0].message);
+          for (const temp_vulnerabilities of this.issueDatas.vulnerabilities){
+              this.vulnerabilityInfo.push(temp_vulnerabilities.message)
+          }
+
+          for (const temp_bugs of this.issueDatas.bugs){
+              this.bugsInfo.push(temp_bugs.message)
+          }
+
+          for (const temp_code_smells of this.issueDatas.code_smells){
+              this.codeSmellInfo.push(temp_code_smells.message)
+          }
         }
       );
   }
@@ -79,7 +89,12 @@ export class SonarQubeComponent implements OnInit {
   goToSonarHistory(){
     this.router.navigate(['sonar-qube-history']);
   }
+
   goToSonarOverview(){
       this.router.navigate(['sonar-qube']);
   }
+
+//   showBugsInfo(){
+//     window.sessionStorage.getItem();
+//   }
 }
