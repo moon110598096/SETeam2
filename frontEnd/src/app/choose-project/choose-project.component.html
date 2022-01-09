@@ -2,12 +2,14 @@
 <app-header></app-header>
 <div class="row" style="padding:10px 100px 10px 100px;">
   <div class="col-2">
-    <br>
-    <app-personal-imformation></app-personal-imformation>
+    <img class="UserLogo" src="./assets/images/user.png" width="200px" height="200px">
+    <p style="margin:0px 35px;font-family:Arial,sans-serif;font-size:28px;font-weight:bold;">Welcome</p>
   </div>
 <!--start-->
   <div class="col-8">
     <br>
+    <p style="font-family:Andale Mono, monospace;"><b>Projects</b></p>
+    <hr>
     <section *ngFor="let item of datas" class="Projects-section">
       <div  class="Projects-div">
         <table style="margin:20px 70px;">
@@ -19,9 +21,9 @@
             <th><button class="delProject-btn" (click)="delete_repo([item.projectId])" ><img src="./assets/images/close.png" width="25px" height="25px"></button></th>
           </tr>
           <tr>
-            <td><p class="td-repos"><b>repo amount : </b><u>{{item.gitRepoCount}}</u></p></td>
-            <td><p class="td-description"><b>description : </b><u>{{item.projectDescription}}</u></p></td>
-            <td></td>
+            <td><p class="td-repos"><b>repo amount : </b>{{item.gitRepoCount}}</p></td>
+            <td><p class="td-description"><b>description : </b>{{item.projectDescription}}</p></td>
+            <td><p class="td-startTime"><b></b>{{item.projectStartTime}}</p></td>
             <td></td>
           </tr>
         </table>
