@@ -35,33 +35,32 @@ public class CreateProjectTest {
         Assert.assertEquals("bigMoney", account.getAccount());
     }
 
-//    因需先過一次sonarqube，暫先註解，之後再看為何爆炸
-//    @Test
-//    public void Create_Project_Should_Commit_To_Its_User_Test(){
-//
-//        CreateProjectInput input = new CreateProjectInputImpl();
-//        CreateProjectOutput output = new CreateProjectOutputImpl();
-//
-//        input.setName("MakeBigMoney");
-//        input.setDescription("abc");
-//
-//        CreateProjectUseCase createProjectUseCase = new CreateProjectUseCase(projectRepository);
-//        createProjectUseCase.execute(input, output);
-//
-//        String id = output.getId();
-//        Project project = projectRepository.getProjectById(id);
-//        Assert.assertEquals(output.getName(), project.getName());
-//        Assert.assertEquals("abc", project.getDescription());
-//        Assert.assertNotNull(project.getStartTime());
-//
-//        account.addProject(project.getId());
-//        accountRepository.updateAccountOwnProject(account);
-//
-//        Account accountInDB = accountRepository.getAccountById(account.getId());
-//        Assert.assertEquals(1, accountInDB.getProjects().size());
-//
-//        accountRepository.deleteAccount(accountInDB.getId());
-//        accountRepository.deleteAccountRelations(accountInDB.getId());
-//        projectRepository.deleteProject(project.getId());
-//    }
+    @Test
+    public void Create_Project_Should_Commit_To_Its_User_Test(){
+
+        CreateProjectInput input = new CreateProjectInputImpl();
+        CreateProjectOutput output = new CreateProjectOutputImpl();
+
+        input.setName("fffffffffff");
+        input.setDescription("abc");
+
+        CreateProjectUseCase createProjectUseCase = new CreateProjectUseCase(projectRepository);
+        createProjectUseCase.execute(input, output);
+
+        String id = output.getId();
+        Project project = projectRepository.getProjectById(id);
+        Assert.assertEquals(output.getName(), project.getName());
+        Assert.assertEquals("abc", project.getDescription());
+        Assert.assertNotNull(project.getStartTime());
+
+        account.addProject(project.getId());
+        accountRepository.updateAccountOwnProject(account);
+
+        Account accountInDB = accountRepository.getAccountById(account.getId());
+        Assert.assertEquals(1, accountInDB.getProjects().size());
+
+        accountRepository.deleteAccount(accountInDB.getId());
+        accountRepository.deleteAccountRelations(accountInDB.getId());
+        projectRepository.deleteProject(project.getId());
+    }
 }

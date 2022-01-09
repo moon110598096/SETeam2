@@ -1,16 +1,21 @@
 package adapter.servlet.gitrepository;
 
 import adapter.servlet.gitrepository.IssuesServlet;
+import org.json.JSONArray;
 import org.json.JSONObject;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 public class issuesServletTest {
-    private HttpServletRequest request;
+    private MockHttpServletRequest request;
     private HttpServletResponse response;
     private IssuesServlet issuesServlet;
 
@@ -22,17 +27,18 @@ public class issuesServletTest {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("owner", "octocat");
         jsonObject.put("repo", "hello-world");
-        request.setAttribute("repoInfo", jsonObject);
+        String content = "{repoInfo:" + jsonObject + "}";
+        request.setContent(content.getBytes(StandardCharsets.UTF_8));
     }
-//    因需先過一次sonarqube，暫先註解，之後再看為何爆炸
-//    @Test
-//    public void GetPersonalCommitsStatsTest() throws IOException {
-//        issuesServlet.doPost(request, response);
-//        JSONArray jsonArray = (JSONArray) request.getAttribute("issues_info");
-//        Assert.assertEquals("closed", jsonArray.getJSONObject(0).get("state"));
-//        Assert.assertEquals("Hello-World", jsonArray.getJSONObject(0).get("title"));
-//        Assert.assertEquals("Allo", jsonArray.getJSONObject(0).get("body"));
-//        Assert.assertEquals("2020-12-26T04:39:46Z", jsonArray.getJSONObject(0).get("created_at"));
-//        Assert.assertEquals("2020-12-26T04:41:31Z", jsonArray.getJSONObject(0).get("closed_at"));
-//    }
+
+    @Test
+    public void GetPersonalCommitsStatsTest() throws IOException {
+        issuesServlet.doPost(request, response);
+        JSONArray jsonArray = (JSONArray) request.getAttribute("issues_info");
+        String state = jsonArray.getJSONObject(0).get("state").toString();
+
+        Assert.assertEquals(true, jsonArray.length() > 0);
+        Assert.assertEquals(true, state.equals("open") || state.equals("closed"));
+        Assert.assertNotEquals(null, jsonArray.getJSONObject(0).get("title"));
+    }
 }

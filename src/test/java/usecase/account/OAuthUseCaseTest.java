@@ -49,31 +49,3 @@ public class OAuthUseCaseTest {
         Assert.assertEquals("davidcao6426", account.getName());
     }
 }
-//                Account fakeAccount = new Account();
-//                AccountRepository accountRepository = new AccountRepositoryImpl();
-//
-//                fakeAccount.setGithubId(user.getString("id"));
-//
-//                boolean githubAccountExist = accountRepository.verifyGithubAccount(fakeAccount);
-//
-//                if (githubAccountExist){
-//                Account account = accountRepository.getAccountByGithubId(fakeAccount);
-//
-//                jsonObject.append("valid", "true");
-//                jsonObject.append("name", account.getName());
-//                jsonObject.append("id", account.getId());
-//                jsonObject.append("redirect", "choose-project");
-//                }
-//                else {
-//                CreateAccountInput input = new CreateAccountInputImpl();
-//                input.setGithubId(user.getString("id"));
-//                input.setName(user.getString("login"));
-//
-//                CreateAccountOutput output = new CreateAccountOutputImpl();
-//                CreateAccountUseCase createAccountUseCase = new CreateAccountUseCase(accountRepository);
-//                createAccountUseCase.executeOAuth(input, output);
-//                jsonObject.append("valid", "true");
-//                jsonObject.append("userName", fakeAccount.getName());
-//                jsonObject.append("userId", fakeAccount.getId());
-//                jsonObject.append("redirect", "choose-project");
-//                }

@@ -112,10 +112,10 @@ public class CommitServlet extends HttpServlet {
 //    }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         JSONObject requestBody = new JSONObject(request.getReader().readLine());
-        String owner = requestBody.getString("owner");
-        String repo = requestBody.getString("repo");
+        String owner = requestBody.getJSONObject("repoInfo").getString("owner");
+        String repo = requestBody.getJSONObject("repoInfo").getString("repo");
         JSONArray personalStatsJsonArray = getPersonalStatsJsonArray(owner, repo);
         JSONObject totalStatsJsonObject = getTotalStatsJsonObject(personalStatsJsonArray);
         request.setAttribute("personal_commits_stats", personalStatsJsonArray);
