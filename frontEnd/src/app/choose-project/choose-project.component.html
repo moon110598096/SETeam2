@@ -5,58 +5,30 @@
     <br>
     <app-personal-imformation></app-personal-imformation>
   </div>
-
+<!--start-->
   <div class="col-8">
     <br>
     <section *ngFor="let item of datas" class="Projects-section">
       <div  class="Projects-div">
-        <button  class="myButton" (click)="choose_repo($event)" id = "{{item.projectId}}" >
+        <table style="margin:20px 70px;">
           <tr>
-            <th class="projectName" colspan="2">{{item.projectName}}</th>
+            <th colspan="2">
+              <button  class="myButton" (click)="choose_repo($event)" id = "{{item.projectId}}">{{item.projectName}}</button>
+            </th>
             <th class="public-project"><p style="width:45px;border:1px solid #DED0CE;border-radius:5px;">Public</p></th>
             <th><button class="delProject-btn" (click)="delete_repo([item.projectId])" ><img src="./assets/images/close.png" width="25px" height="25px"></button></th>
           </tr>
           <tr>
-            <td style="width:150px;"><p style="font-size:14px;color:#808B96;"><b>repo amount </b><u>{{item.gitRepoCount}}</u></p></td>
-            <td style="width:200px;"><p style="font-size:14px;color:#808B96;"><b>description </b><u>{{item.projectDescription}}</u></p></td>
+            <td><p class="td-repos"><b>repo amount : </b><u>{{item.gitRepoCount}}</u></p></td>
+            <td><p class="td-description"><b>description : </b><u>{{item.projectDescription}}</u></p></td>
             <td></td>
             <td></td>
           </tr>
-
-<!--          {{item.projectStartTime}}<br/>-->
-        </button>
-
+        </table>
       </div>
     </section>
-<!--    <section class="Projects-section">-->
-<!--      <div class="Projects-div"><button class="myButton2" (click)="goToAddProjectPage()">ADD NEW PROJECT</button></div>-->
-<!--    </section>-->
   </div>
 
-<!--  <div class="col-8">-->
-<!--    <br>-->
-<!--    <div>-->
-<!--      <table>-->
-<!--        <section *ngFor="let item of datas" class="ProjectButton-section">-->
-<!--          <tr>-->
-<!--            <div  class="ProjectButton-div">-->
-<!--              <button  class="myButton" (click)="choose_repo($event)" id = "{{item.projectId}}" >-->
-<!--                <th class="th-projectButton">{{item.projectName}}</th><br/>-->
-<!--                description : {{item.projectDescription}}<br/>-->
-<!--                contain repo : {{item.gitRepoCount}}<br/>-->
-<!--                {{item.projectStartTime}}<br/>-->
-<!--                <button style=" text-align:right;border-radius:10px;" (click)="delete_repo([item.projectId])" >delete</button>-->
-<!--              </button>-->
-<!--&lt;!&ndash;              上面binding的變數可以透過"[]"來傳入函數!!!!  &ndash;&gt;-->
-<!--            </div>-->
-<!--          </tr>-->
-
-<!--        </section>-->
-<!--      </table>-->
-
-<!--    </div >-->
-<!--          <div><button class="myButton2" (click)="goToAddProjectPage()">ADD NEW PROJECT</button></div>-->
-<!--  </div>-->
 
 </div>
 <app-footer></app-footer>

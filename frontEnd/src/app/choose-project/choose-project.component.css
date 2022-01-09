@@ -4,13 +4,9 @@
 }
 
 .Projects-div {
-}
-
-.projectName {
-  font-family:Arial, sans-serif;
-  font-size:28px;
-  color:#3498DB;
-  width:550px;
+  border-radius:7px;
+  border:1px solid #DED0CE;
+  width:800px;
 }
 
 .public-project {
@@ -22,25 +18,27 @@
 }
 
 .myButton {
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
+  font-size:28px;
+  font-weight:bold;
+  color:#3498DB;
   background-color: #ffffff;
-  border-radius:5px;
-  border:1px solid #DED0CE;
-  width:800px;
+  border:0px;
+  width:500px;
   display:inline-block;
   cursor:pointer;
   /*字color*/
-  color: #000000;
-  font-size: 20px;
   text-align:left;
-  font-family:Arial;
-  padding:20px 10px 20px 100px;
+  padding:5px;
   text-decoration:none;
   /*text-shadow:0px 1px 0px #2f6627;*/
   word-wrap: break-word;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .myButton:hover {
-  background-color:#EBF5FB;
+  text-decoration: underline;
 }
 .myButton:active {
   position:relative;
@@ -55,28 +53,23 @@
 
 .delProject-btn:hover {
 }
-/*
-.myButton2 {
-  font-family:Arial, sans-serif;
-  background-color: #ffffff;
-  border-radius:5px;
-  border:1px dashed  #DED0CE;
-  width:100%;
-  display:inline-block;
-  cursor:pointer;
-  color: #000000;
 
-  font-family:Arial;
-  font-size:17px;
-  padding:32px 275px;
-  text-decoration:none;
-  text-shadow:0px 1px 0px #2f6627;
+.td-repos {
+  padding:0px 5px;
+  font-size:14px;
+  color:#808B96;
+  width:150px;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-.myButton2:hover {
-  background-color:lightblue;
+
+.td-description {
+  padding:0px 5px;
+  font-size:14px;
+  color:#808B96;
+  width:200px;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-.myButton2:active {
-  position:relative;
-  top:1px;
-}
-*/
