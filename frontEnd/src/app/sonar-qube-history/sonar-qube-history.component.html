@@ -8,12 +8,48 @@
   <div class="col-8">
     <br>
     <h1>
-      SONAR QUBE HISTORY
+      SONAR QUBE
       <button class="sonar-button" (click)="goToSonarOverview()">Overview</button>
       <button class="sonar-button" (click)="goToSonarHistory()">History</button>
     </h1>
     <h1 style="border-bottom-style: dotted;"></h1>
-    <h1>Test</h1>
+    <table class="tg">
+      <thead>
+      </thead>
+      <tbody>
+      <tr>
+        <th class="tg-v38z"></th>
+        <th class="tg-v38z"></th>
+      </tr>
+      <tr>
+        <th class="tg-bug-name"><p style = "margin:10px;"><img src="./assets/images/bug.png" width="50px" height="50px">&nbsp;BUG</p></th>
+        <th class="tg-bug-name"></th>
+      </tr>
+      <tr>
+        <div *ngFor="let s of bugHistory">
+          <th class="tg-v38z">{{s[0]}} {{s[1]}}</th>
+        </div>
+      </tr>
+      <tr>
+        <td class="tg-smell-name"><p style = "margin:10px"><img src="./assets/images/codesmell.png" width="50px" height="50px">&nbsp;CODE SMELL</p></td>
+        <td class="tg-smell-name"></td>
+      </tr>
+      <tr>
+        <div *ngFor="let s of codeSmellHistory">
+          <th class="tg-v38z">{{s[0]}} {{s[1]}}</th>
+        </div>
+      </tr>
+      <tr>
+        <td class="tg-vulnerability-name"><p style = "margin:10px"><img src="./assets/images/vulnerability.png" width="50px" height="50px">&nbsp;VULNERABILITY</p></td>
+        <td class="tg-vulnerability-name"></td>
+      </tr>
+      <tr>
+        <div *ngFor="let s of vulnerabilitiesHistory">
+          <th class="tg-v38z">{{s[0]}} {{s[1]}}</th>
+        </div>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 <app-footer></app-footer>
