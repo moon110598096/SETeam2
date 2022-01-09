@@ -17,6 +17,7 @@ import {HomepageComponent} from './homepage/homepage.component';
 import {ProjectoverviewComponent} from './projectoverview/projectoverview.component';
 import {ComparemultiprojectComponent} from './comparemultiproject/comparemultiproject.component';
 import {SonarQubeComponent} from './sonar-qube/sonar-qube.component';
+import {SonarQubeHistoryComponent} from './sonar-qube-history/sonar-qube-history.component';
 import { OauthComponent } from './oauth/oauth.component';
 
 
@@ -39,6 +40,7 @@ const routes: Routes = [
   {path: 'multiproject', component: ComparemultiprojectComponent},
   {path: 'sonar-qube' , component: SonarQubeComponent},
   {path: 'OAuthorize' , component: OauthComponent},
+  {path: 'sonar-qube-history' , component: SonarQubeHistoryComponent},
   {path: '**', component: LoginComponent}
 ];
 

@@ -3,11 +3,16 @@
 <div class="row" style="padding:10px 100px 10px 100px;">
   <div class="col-2">
     <app-repo-imformation></app-repo-imformation>
+
   </div>
   <div class="col-8">
     <br>
-    <h1 style="border-bottom-style: dotted;">SONAR QUBE</h1>
-<!--    <img src="./assets/images/sonarqubelogo.png" width="566px" height="207.5px">-->
+    <h1>
+      SONAR QUBE
+      <button class="sonar-button" (click)="goToSonarOverview()">Overview</button>
+      <button class="sonar-button" (click)="goToSonarHistory()">History</button>
+    </h1>
+    <h1 style="border-bottom-style: dotted;"></h1>
     <table class="tg">
       <thead>
       </thead>
@@ -17,28 +22,25 @@
         <th class="tg-v38z"></th>
       </tr>
       <tr>
-        <th class="tg-bug"><p style = "margin:10px"><img src="./assets/images/bug.png" width="50px" height="50px">&nbsp;BUG</p></th>
-        <th class="tg-bug">{{bugCount}}</th>
+          <th class="tg-bug-name"><p style = "margin:10px;"><img src="./assets/images/bug.png" width="50px" height="50px">&nbsp;BUG</p></th>
+          <th class="tg-bug-cnt">{{bugCount}}<button style="background-color:transparent;border:none;font-size:16;">▼</button></th>
       </tr>
       <tr>
-        <th class="tg-v38z"><div *ngFor="let s of bugsInfo.split('\n')">{{s}}</div></th>
-        <th class="tg-v38z"></th>
+        <th class="tg-v38z"><div *ngFor="let s of bugsInfo">{{s}}</div></th>
       </tr>
       <tr>
-        <td class="tg-smell"><p style = "margin:10px"><img src="./assets/images/codesmell.png" width="50px" height="50px">&nbsp;CODE SMELL</p></td>
-        <td class="tg-smell">{{codeSmellsCount}}</td>
+        <td class="tg-smell-name"><p style = "margin:10px"><img src="./assets/images/codesmell.png" width="50px" height="50px">&nbsp;CODE SMELL</p></td>
+        <td class="tg-smell-cnt">{{codeSmellsCount}}<button style="background-color:transparent;border:none;font-size:16;">▼</button></td>
       </tr>
       <tr>
-        <th class="tg-v38z"><div *ngFor="let s of codeSmellInfo.split('\n')">{{s}}</div></th>
-        <th class="tg-v38z"></th>
+        <th class="tg-v38z"><div *ngFor="let s of codeSmellInfo">{{s}}</div></th>
       </tr>
       <tr>
-        <td class="tg-vulnerability"><p style = "margin:10px"><img src="./assets/images/vulnerability.png" width="50px" height="50px">&nbsp;VULNERABILITY</p></td>
-        <td class="tg-vulnerability">{{VulnerabilityCount}}</td>
+        <td class="tg-vulnerability-name"><p style = "margin:10px"><img src="./assets/images/vulnerability.png" width="50px" height="50px">&nbsp;VULNERABILITY</p></td>
+        <td class="tg-vulnerability-cnt">{{VulnerabilityCount}}<button style="background-color:transparent;border:none;font-size:16;">▼</button></td>
       </tr>
       <tr>
-        <th class="tg-v38z"><div *ngFor="let s of vulnerabilityInfo.split('\n')">{{s}}</div></th>
-        <th class="tg-v38z"></th>
+        <th class="tg-v38z"><div *ngFor="let show_vulnerabilityInfo of vulnerabilityInfo;">{{show_vulnerabilityInfo}}</div></th>
       </tr>
       </tbody>
     </table>

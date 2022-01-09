@@ -10,34 +10,23 @@ import {Router, ActivatedRoute} from '@angular/router';
 
 export class SonarQubeComponent implements OnInit {
   datas : any;
-  bugCount = -1;
-  codeSmellsCount = -1;
-  VulnerabilityCount = -1;
+  issueDatas : any;
+  bugCount = 0;
+  codeSmellsCount = 0;
+  VulnerabilityCount = 0;
   component = "";
-  bugsInfo = "";
-  codeSmellInfo = "";
-  vulnerabilityInfo = "";
+  bugsInfo = [];
+  codeSmellInfo = [];
+  vulnerabilityInfo = [];
 
-  constructor(private sonarQubeService: SonarQubeService) {
+  constructor(private router: Router,private sonarQubeService: SonarQubeService) {
+
   }
 
   ngOnInit(): void {
 //     this.component = window.sessionStorage.getItem('repoName');
-    this.component = "HappyCamp";
+    this.component = "GitRepositoryAnalysisSystem";
     this.getSonarqubeInfo();
-    this.createInfo();
-  }
-
-  createInfo(){
-    this.bugsInfo += "Use try-with-resources or close this \"PreparedStatement\" in a \"finally\" clause";
-
-    this.codeSmellInfo += "Use a logger to log this exception. \n";
-    this.codeSmellInfo += "Add a \"try/catch\" block for \"getWriter\".\n";
-    this.codeSmellInfo += "Add a \"try/catch\" block for \"getCodeSmellInfoJsonArray\".\n";
-    this.codeSmellInfo += "Add a \"try/catch\" block for \"getString\".\n";
-
-    this.vulnerabilityInfo += "Remove this unused import 'java.util.Objects'.\n";
-    this.vulnerabilityInfo += "Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.\n";
   }
 
   getSonarqubeInfo() {
@@ -49,6 +38,14 @@ export class SonarQubeComponent implements OnInit {
       repoInfo.component = this.component;
 
       const data = JSON.stringify(repoInfo);
+
+      const IssueRepoInfo = {
+              componentKeys: undefined,
+      };
+
+      IssueRepoInfo.componentKeys = this.component;
+
+      const issueData = JSON.stringify(IssueRepoInfo);
 
       this.sonarQubeService.getSonarQubeCodeSmellsService(data).subscribe(
         request => {
@@ -70,5 +67,34 @@ export class SonarQubeComponent implements OnInit {
           this.bugCount = this.datas.value;
         }
       );
+
+      this.sonarQubeService.getSonarQubeIssueInfo(IssueRepoInfo).subscribe(
+        request => {
+          this.issueDatas = request;
+          for (const temp_vulnerabilities of this.issueDatas.vulnerabilities){
+              this.vulnerabilityInfo.push(temp_vulnerabilities.message)
+          }
+
+          for (const temp_bugs of this.issueDatas.bugs){
+              this.bugsInfo.push(temp_bugs.message)
+          }
+
+          for (const temp_code_smells of this.issueDatas.code_smells){
+              this.codeSmellInfo.push(temp_code_smells.message)
+          }
+        }
+      );
   }
+
+  goToSonarHistory(){
+    this.router.navigate(['sonar-qube-history']);
+  }
+
+  goToSonarOverview(){
+      this.router.navigate(['sonar-qube']);
+  }
+
+//   showBugsInfo(){
+//     window.sessionStorage.getItem();
+//   }
 }

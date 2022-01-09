@@ -1,10 +1,32 @@
 
+.Projects-section {
+  margin:30px 20px;
+}
 
+.Projects-div {
+}
+
+.projectName {
+  font-family:Arial, sans-serif;
+  font-size:28px;
+  color:#3498DB;
+  width:550px;
+}
+
+.public-project {
+  font-size:12px;
+  text-align: center;
+  color:#ABB2B9;
+  width:px;
+  padding:0px 20px;
+}
 
 .myButton {
+  font-family:Arial, sans-serif;
   background-color: #ffffff;
-  border-radius:10px;
-  border:1px solid #312a2a;
+  border-radius:5px;
+  border:1px solid #DED0CE;
+  width:800px;
   display:inline-block;
   cursor:pointer;
   /*字color*/
@@ -12,27 +34,36 @@
   font-size: 20px;
   text-align:left;
   font-family:Arial;
-  padding:20px 200px;
+  padding:20px 10px 20px 100px;
   text-decoration:none;
   /*text-shadow:0px 1px 0px #2f6627;*/
   word-wrap: break-word;
 }
 .myButton:hover {
-  background-color:#5cbf2a;
+  background-color:#EBF5FB;
 }
 .myButton:active {
   position:relative;
   top:1px;
 }
 
+.delProject-btn {
+  background-color:transparent;
+  border:0px;
+  margin:5px 10px;
+}
 
+.delProject-btn:hover {
+}
+/*
 .myButton2 {
+  font-family:Arial, sans-serif;
   background-color: #ffffff;
-  border-radius:28px;
-  border:1px solid #312a2a;
+  border-radius:5px;
+  border:1px dashed  #DED0CE;
+  width:100%;
   display:inline-block;
   cursor:pointer;
-  /*字color*/
   color: #000000;
 
   font-family:Arial;
@@ -42,10 +73,10 @@
   text-shadow:0px 1px 0px #2f6627;
 }
 .myButton2:hover {
-  background-color:#5cbf2a;
+  background-color:lightblue;
 }
 .myButton2:active {
   position:relative;
   top:1px;
 }
-
+*/
