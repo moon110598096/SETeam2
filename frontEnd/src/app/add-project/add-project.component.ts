@@ -10,6 +10,7 @@ import { CreateProjectService } from './create-project.service';
   styleUrls: ['./add-project.component.css']
 })
 export class AddProjectComponent implements OnInit {
+  UserName:any;
   projectImportMsg = '';
   InputGitRepoUrl: '';
   badImportMsg = '';
@@ -27,6 +28,7 @@ export class AddProjectComponent implements OnInit {
    }
   ngOnInit(): void {
     this.UserID = window.sessionStorage.getItem('UserID');
+    this.UserName = window.sessionStorage.getItem('Username');
   }
 
   CheckGitRepoUrlVaild(){
@@ -49,7 +51,8 @@ export class AddProjectComponent implements OnInit {
           }
         }
         else{
-          this.badImportMsg = "此網址無效，請重新輸入";
+          this.badImportMsg = "Invalid url.\n";
+          alert(this.badImportMsg);
         }
       }
     );

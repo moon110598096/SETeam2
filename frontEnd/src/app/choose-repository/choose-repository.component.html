@@ -5,12 +5,12 @@
     <p class="welcome">Welcome</p>
     <p class="welcome" style="font-size:20px;">{{UserName}}</p>
   </div>
-  
+
   <div class="col-8">
     <br>
     <table style="width:100%;">
       <th class="ProjectName">{{ProjectName}} :</th>
-      <th><button mat-flat-button  color="primary" class="CompareRepo" (click)="goToAnalysisMultiPage()">Compare Repos</button></th>
+      <th><button mat-stroked-button  color="primary" class="CompareRepo" (click)="goToAnalysisMultiPage()">Compare Repos</button></th>
     </table>
     <hr>
     <p style="font-family:Andale Mono, monospace;margin-left:10px;"><b>You have {{datas.length}} Repo here</b></p>

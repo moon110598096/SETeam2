@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,65 +26,64 @@
 </head>
 
 <body>
-    <app-header></app-header>
+  <app-header></app-header>
+  <div class="row" style="padding:10px 100px 10px 100px;">
+    <div class="col-2">
+      <table>
+        <tr><img class="HeadSticker" src="./assets/images/user.png" width="200px" height="200px"></tr>
+        <tr class="welcome">Welcome</tr>
+        <tr class="welcome" style="font-size:20px;">{{UserName}}</tr>
+      </table>
+    </div>
 
-    <section class="content4 cid-sk45OLP2XQ" id="content4-12">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="title col-md-12 col-lg-10">
-                    <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2">
-                        <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-5"><br>Create Project</h4>
-                        <form action="" class="addProject" method="post">
-                            <div class="rgba" style="text-align:left;">
-                                <table>
-                                    <tr>
-                                        <td rowspan="3" width="25%" style="text-align:left;">
-                                            <h4 class="display-4">Project Name: <br><input type="text" name="FullNameofUser" placeholder="專案名稱" required [(ngModel)]="NameofProject" ></h4>
-                                        </td>
-                                        <td colspan="1" width="25%" style="text-align:right;">
-                                          <h4 class="display-4">Add Github Repo Link : <br>
-                                            <input type="text" name="FullNameofUser" placeholder="Input Repo url:" [(ngModel)]="InputGitRepoUrl" ><span class="  text-black display-4" href="#"></span>
-                                            <button type="submit" (click)="CheckGitRepoUrlVaild()">Add</button>
-                                          </h4>
-                                          <h3  style="color:red; " >{{badImportMsg}}</h3>
-                                          <section *ngFor="let item of InputGitRepoUrlList">
-                                          <h4><div style="text-align:left;">{{item}}[導入成功] <br></div></h4>
-                                          </section>
+    <div class="col-8">
+      <br>
+      <div style="font-size:40px;color:#566573;text-align:left;font-family:Arial,sans-serif;"><b>Create New Project</b></div>
+      <br>
+      <form action="" class="addProject" method="post"><!--THIS-->
+        <table class="NewProjectTable">
 
-                                        </td>
-                                    </tr>
-                                </table>
-                                <h4 class="display-4 ">Project Description(optional):<br>
-                                  <textarea [(ngModel)]="DesciptionOfProject" class="ProjectDescription" id="ProjectDescriptionInputText" name="ProjectDescriptionInputTextArea" rows="10" cols="50" size="50%" maxlength="80" placeholder="長度限制:300字" type="text"
-                                        onkeyup=""></textarea></h4>
-                            </div>
-                            <div style="text-align:center;" class="display-4">
-                                <button type="submit" class = "ProjectCreation" (click)="CreatProject()" >Create Project</button>
-                            </div>
-                        </form>
-
-                    </h3>
-
-
-                </div>
+          <tr class="P-URLs">
+            <div class="display-4">
+              <b>1. Import Github Repository : </b><br>
+              <input class="input" type="text" name="FullNameofUser" placeholder="Input Repo url:" [(ngModel)]="InputGitRepoUrl" >
+              <button mat-button color="primary" class="AddUrl" type="submit" (click)="CheckGitRepoUrlVaild()">Add</button><br>
+              <span style="margin-left:20px;">Imported Repos : {{InputGitRepoUrlList.length}}</span><br>
+              <span style="margin-left:20px;">{{InputGitRepoUrlList[(InputGitRepoUrlList.length)-1]}}</span>
             </div>
-        </div>
-    </section>
+          </tr>
 
-    <app-footer></app-footer>
-    <section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;">
-        <a href="https://mobirise.site/o" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a>
-        <p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Created with Mobirise <a href="https://mobirise.site/u" style="color:#aaa;">website</a> template</p>
-    </section>
-    <script src="assets/web/assets/jquery/jquery.min.js"></script>
-    <script src="assets/popper/popper.min.js"></script>
-    <script src="assets/tether/tether.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/smoothscroll/smooth-scroll.js"></script>
-    <script src="assets/dropdown/js/nav-dropdown.js"></script>
-    <script src="assets/dropdown/js/navbar-dropdown.js"></script>
-    <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
-    <script src="assets/theme/js/script.js"></script>
+          <tr class="P-name">
+            <div class="display-4">
+              <b>2. Project Name For New Project : </b><br>
+              <input class="input" type="text" name="FullNameofUser" maxlength="20" placeholder="Project Name" required [(ngModel)]="NameofProject" >
+            </div>
+          </tr>
+
+          <tr class="P-description">
+            <div class="display-4 ">
+              <b>3. Project Description (optional) :</b><br>
+              <textarea [(ngModel)]="DesciptionOfProject" class="Description-textarea" id="ProjectDescriptionInputText" name="ProjectDescriptionInputTextArea" rows="10" cols="100" size="80%" maxlength="150" placeholder="Less Than 200 words" type="text" onkeyup=""></textarea>
+            </div>
+          </tr>
+
+        </table>
+
+        <div style="text-align:center;" class="display-4"><button mat-stroked-button  color="warn" type="submit" class = "ProjectCreation" (click)="CreatProject()" >Create Project</button></div><!--THIS-->
+
+      </form>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/popper/popper.min.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/dropdown/js/nav-dropdown.js"></script>
+  <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/theme/js/script.js"></script>
 </body>
-
 </html>
