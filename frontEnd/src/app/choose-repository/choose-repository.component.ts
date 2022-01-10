@@ -15,15 +15,17 @@ export class ChooseRepositoryComponent implements OnInit {
   owner = new Array();
   repoNames = new Array();
   totalData = new Array();
-
+  UserName:any;
+  ProjectName:any;
 
   constructor(private router: Router, private getrepoinfoofchosenproject: GetRepoInfoOfChosenProjectService,private activerouter:ActivatedRoute) {
   }
 
   ngOnInit(): void {
+     this.UserName = window.sessionStorage.getItem('Username');
      this.ProjectID = window.sessionStorage.getItem('ChosenProjectID');
+     this.ProjectName = window.sessionStorage.getItem('ChosenProjectName');
      this.getTotalRepoInfoOfProject();
-
   }
   getTotalRepoInfoOfProject() {
         const UserRepoData = {

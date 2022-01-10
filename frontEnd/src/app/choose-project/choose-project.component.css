@@ -1,3 +1,22 @@
+.HeadSticker {
+  display: block;
+  margin: 0px auto;
+  margin-top: 50px;
+}
+
+.welcome {
+  display: block;
+  margin: 10px auto;
+  color:#808B96;
+  font-family:Arial,sans-serif;
+  font-size:28px;
+  font-weight:bold;
+  text-align: center;
+  text-transform:uppercase;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 .Projects-section {margin:30px 20px;}
 
@@ -5,10 +24,6 @@
   border-radius:7px;
   border:1px solid #DED0CE;
   width:850px;
-}
-
-.UserLogo {
- margin:50px 0px;
 }
 
 .public-project {

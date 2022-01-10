@@ -18,11 +18,13 @@ export class ChooseProjectComponent implements OnInit {
   item:any;
   totalProject:any;
   UserID = '';
+  UserName:any;
   ChosenProjectID = '';
 
   constructor(private router: Router, private getProjectInfoService: GetProjectInfoService, private delProjectService: DeleteProjectService, private activerouter:ActivatedRoute ) {}
 
   ngOnInit(): void {
+    this.UserName = window.sessionStorage.getItem('Username');
     this.UserID = window.sessionStorage.getItem('UserID');
     this.getTotalProjectInfo();
   }
@@ -45,8 +47,11 @@ export class ChooseProjectComponent implements OnInit {
   choose_repo(event) {
     console.log(event);
     const chosenId: string = event.target.id.toString();
+    const chosenName: string = event.target.name.toString();
     sessionStorage.setItem('ChosenProjectID', chosenId);
-    console.log("chosenid:",chosenId)
+    sessionStorage.setItem('ChosenProjectName', chosenName);
+    console.log("chosenid:",chosenId);
+    console.log("chosenid:",chosenName);
     this.router.navigate(['choose-repository']);
   }
 
