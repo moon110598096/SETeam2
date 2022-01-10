@@ -1,50 +1,109 @@
-.myButton {
-  background-color: #ffffff;
-  border-radius: 28px;
-  border: 1px solid #312a2a;
-  display: inline-block;
-  cursor: pointer;
-  /*字color*/
-  color: #000000;
+.HeadSticker {
+  display: block;
+  margin: 0px auto;
+  margin-top: 50px;
+}
 
-  font-family: Arial;
-  font-size: 20px;
+.welcome {
+  display: block;
+  margin: 10px auto;
+  color:#808B96;
+  font-family:Arial,sans-serif;
+  font-size:28px;
+  font-weight:bold;
+  text-align: center;
+  text-transform:uppercase;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ProjectName{
+  width:500px;
+  margin-bottom:0px;
+  font-family:Arial,sans-serif;
+  font-size:28px;
+  font-weight:bold;
+  color:#3498DB;
+  display:inline-block;
   text-align:left;
-  height: 300px;
-  width: 300px;
-  text-decoration: none;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.repo-div {
+  border-radius:7px;
+  border:1px solid #DED0CE;
+  width:600px;
+  margin:30px 0px 30px 100px;
+  padding:30px 0px 10px 50px;
+}
+
+.repo-table {
+}
+
+.repo-icon {
+  opacity:0.5;
+  display:inline-block;
+  width:20px;
+  height:20px;
+  padding-bottom:5px;
+  padding-right:5px;
+}
+
+.myButton {
+  border-radius:7px;
+  border:1px solid #DED0CE;
+  font-family:Arial,sans-serif;
+  font-size:20px;
+  font-weight:bold;
+  color:#566573;
+  background-color: transparent;
+  border:0px;
+  width:500px;
+  display:inline-block;
+  cursor:pointer;
+  /*字color*/
+  text-align:left;
+  padding:5px;
+  text-decoration:none;
   /*text-shadow:0px 1px 0px #2f6627;*/
-  word-wrap: break-word;
-
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-
-.myButton:hover {
-  background-color: #5cbf2a;
-}
-
+.myButton:hover {text-decoration: underline;}
 .myButton:active {
   position: relative;
   top: 1px;
 }
+.myButton:focus {outline:0;}
 
-.myButton2 {
-  background-color: #6a6565;
-  border-radius: 28px;
-  border: 1px solid #312a2a;
-  display: inline-block;
-  cursor: pointer;
-  /*字color*/
-  color: #000000;
-
-  font-family: Arial;
-  font-size: 17px;
-  height: 150px;
-  width: 1000px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #2f6627;
-
+.td-owner {
+  padding:15px 0px;
+  font-size:14px;
+  color:#808B96;
+  text-align:left;
+  width:180px;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.mat-button-base {
-  margin: 8px 8px 8px 0;
+.td-url {
+  padding:15px 0px;
+  font-size:14px;
+  color:#808B96;
+  text-align:left;
+  width:200px;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
+
+.multipageButton {
+  margin:50px;
+  float:right;
+}
+.multipageButton:focus {outline:0;}

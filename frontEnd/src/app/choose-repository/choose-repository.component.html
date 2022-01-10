@@ -1,35 +1,35 @@
 <app-header></app-header>
-<br>
 <div class="row" style="padding:10px 100px 10px 100px;">
-  <div class="col-4">
-    <app-personal-imformation></app-personal-imformation>
+  <div class="col-3">
+    <img class="HeadSticker" src="./assets/images/user.png" width="200px" height="200px">
+    <p class="welcome">Welcome</p>
+    <p class="welcome" style="font-size:20px;">{{UserName}}</p>
   </div>
-
-
+  <!--start-->
   <div class="col-8">
-    <div>
-      <table>
+    <br>
+    <p class="ProjectName">{{ProjectName}} :</p>
+    <hr>
+    <p style="font-family:Andale Mono, monospace;margin-left:10px;"><b>You have {{datas.length}} Repo here</b></p>
+    <div *ngFor="let item of datas" class="repo-div">
+
+      <table class="repo-table">
         <tr>
-
-          <td *ngFor="let item of datas">
-            <button class="myButton" (click)="goToCommitTrendPage($event)" id = "{{item.repoName}}">Repo_Name:{{item.repoName}}<br/>Owner:{{item.ownerName}}<br/>
-            </button>
-          </td>
-
-
+          <th colspan="2" style="border-bottom: 2px solid #566573;">
+            <button class="myButton" (click)="goToCommitTrendPage($event)" id = "{{item.repoName}}"><img class="repo-icon" src="./assets/images/repo.png"> {{item.repoName}}</button>
+          </th>
         </tr>
-        <tr>
-          <td>
-            <button mat-raised-button class="multipageButton" (click)="goToAnalysisMultiPage()">比較多個Repo</button>
-          </td>
-        </tr>
-
       </table>
 
+      <table>
+        <tr>
+          <td class="td-owner"><b>Owner : </b>{{item.ownerName}}</td>
+          <td class="td-url"><b>url : </b>github.com/{{item.ownerName}}/{{item.repoName}}</td>
+        </tr>
+      </table>
 
     </div>
-
-
+    <button mat-flat-button  color="primary" class="multipageButton" (click)="goToAnalysisMultiPage()">Compare Repos</button>
   </div>
 </div>
 <app-footer></app-footer>
