@@ -5,14 +5,16 @@
     <p class="welcome">Welcome</p>
     <p class="welcome" style="font-size:20px;">{{UserName}}</p>
   </div>
-  <!--start-->
+  
   <div class="col-8">
     <br>
-    <p class="ProjectName">{{ProjectName}} :</p>
+    <table style="width:100%;">
+      <th class="ProjectName">{{ProjectName}} :</th>
+      <th><button mat-flat-button  color="primary" class="CompareRepo" (click)="goToAnalysisMultiPage()">Compare Repos</button></th>
+    </table>
     <hr>
     <p style="font-family:Andale Mono, monospace;margin-left:10px;"><b>You have {{datas.length}} Repo here</b></p>
     <div *ngFor="let item of datas" class="repo-div">
-
       <table class="repo-table">
         <tr>
           <th colspan="2" style="border-bottom: 2px solid #566573;">
@@ -20,16 +22,13 @@
           </th>
         </tr>
       </table>
-
       <table>
         <tr>
           <td class="td-owner"><b>Owner : </b>{{item.ownerName}}</td>
           <td class="td-url"><b>url : </b>github.com/{{item.ownerName}}/{{item.repoName}}</td>
         </tr>
       </table>
-
     </div>
-    <button mat-flat-button  color="primary" class="multipageButton" (click)="goToAnalysisMultiPage()">Compare Repos</button>
   </div>
 </div>
 <app-footer></app-footer>

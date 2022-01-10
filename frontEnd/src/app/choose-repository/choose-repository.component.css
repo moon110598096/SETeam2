@@ -19,7 +19,7 @@
 }
 
 .ProjectName{
-  width:500px;
+  width:70%;
   margin-bottom:0px;
   font-family:Arial,sans-serif;
   font-size:28px;
@@ -102,8 +102,12 @@
   text-overflow: ellipsis;
 }
 
-.multipageButton {
-  margin:50px;
+.CompareRepo {
+  /*margin:50px;*/
   float:right;
 }
-.multipageButton:focus {outline:0;}
+.CompareRepo:focus {outline:0;}
+.CompareRepo:active {
+  position: relative;
+  top: 1px;
+}
