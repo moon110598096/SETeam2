@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import usecase.GithubOAuthAccessor;
+import adapter.accessor.GithubOAuthAccessor;
 import usecase.account.AccountRepository;
 import usecase.account.CreateAccountInput;
 import usecase.account.CreateAccountOutput;

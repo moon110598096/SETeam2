@@ -1,15 +1,11 @@
 package usecase;
 
-import adapter.gitrepository.GitRepositoryRepositoryImpl;
-import com.mysql.cj.xdevapi.JsonArray;
-import domain.GitRepository;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import usecase.GithubRepositoryAccessor;
-import usecase.gitrepository.GitRepositoryRepository;
+import adapter.accessor.GithubRepositoryAccessor;
 
 import java.io.IOException;
 import java.util.ArrayList;

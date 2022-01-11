@@ -4,7 +4,7 @@ import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import usecase.GithubRepositoryAccessor;
+import adapter.accessor.GithubRepositoryAccessor;
 
 import java.io.IOException;
 

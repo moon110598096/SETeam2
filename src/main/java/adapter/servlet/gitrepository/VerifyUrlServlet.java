@@ -1,7 +1,7 @@
 package adapter.servlet.gitrepository;
 
 import org.json.JSONObject;
-import usecase.GithubRepositoryAccessor;
+import adapter.accessor.GithubRepositoryAccessor;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
