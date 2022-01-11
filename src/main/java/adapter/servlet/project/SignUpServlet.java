@@ -9,7 +9,6 @@ import usecase.account.AccountRepository;
 import usecase.account.CreateAccountInput;
 import usecase.account.CreateAccountOutput;
 import usecase.account.CreateAccountUseCase;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,11 +19,6 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/signUp", name = "SignUpServlet")
 public class SignUpServlet extends HttpServlet {
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//    }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         JSONObject requestBody = new JSONObject(request.getReader().readLine());

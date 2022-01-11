@@ -13,10 +13,6 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/issueWithQuery", name = "IssueWithQueryServlet")
 public class IssueWithQueryServlet extends HttpServlet {
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-//
-//    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {

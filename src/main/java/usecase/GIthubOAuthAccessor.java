@@ -1,113 +1,55 @@
 package usecase;
 
-import org.json.JSONException;
+import org.json.JSONArray;
 import org.json.JSONObject;
-
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
-import java.net.URL;
+import java.util.HashMap;
 
-public class GIthubOAuthAccessor {
-    public JSONObject httpGet(String url, String paramsJSON, String token){
-        HttpsURLConnection con = null;
-        URL urlObj;
-        StringBuilder result = null;
-        JSONObject jObj = null;
+public class GithubOAuthAccessor extends Accessor{
 
-        try {
-            urlObj = new URL(url);
-            con = (HttpsURLConnection) urlObj.openConnection();
-            con.setRequestProperty("Content-Type", "application/json");
-            con.setRequestMethod("GET");
-            con.setRequestProperty("Authorization", "Bearer "+token);
+    protected  Accessor<HttpsURLConnection> accessor;
 
-            int code = con.getResponseCode();
-            System.out.println("HTTP CODE " + String.valueOf(code));;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public GithubOAuthAccessor(){
+        accessor = new Accessor<>();
+        properties = new HashMap<>();
+    }
+    @Override
+    public JSONArray httpsGet(String url) throws IOException {
 
-        try {
-            //Receive the response from the server
-            InputStream in = new BufferedInputStream(con.getInputStream());
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            result = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                result.append(line);
-            }
+        accessor.httpsConnection = (HttpsURLConnection)getConnection(url);
+        accessor.httpsConnection.setRequestMethod("GET");
 
-            System.out.println("JSON Parser "+ "result: " + result.toString());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        con.disconnect();
-
-        // try parse the string to a JSON object
-        try {
-            jObj = new JSONObject(result.toString());
-            System.out.println(jObj.toString());
-        } catch (JSONException e) {
-            System.out.println("JSON Parser " + "Error parsing data " + e.toString());
-        }
-
-        return jObj;
+        setConnectionProperty(accessor.httpsConnection);
+        BufferedReader reader = getJSONUsingHttpsGet(accessor.httpsConnection);
+        String completeContent = getCompleteContentString(reader);
+        if(completeContent.charAt(0) != '[') completeContent = "[" + completeContent + "]";
+        JSONArray jsonArray = new JSONArray(completeContent);
+        closeAllConnection();
+        return jsonArray;
     }
 
-    public JSONObject httpPost(String url, String paramsJSON){
-        HttpsURLConnection con = null;
-        URL urlObj;
-        StringBuilder result = null;
-        JSONObject jObj = null;
+    public JSONObject httpPost(String url, String paramsJSON) throws IOException {
+        Accessor<HttpsURLConnection> accessor = new Accessor<>();
+        accessor.httpsConnection = (HttpsURLConnection)getConnection(url);
+        accessor.httpsConnection.setRequestMethod("POST");
+        accessor.httpsConnection.setRequestProperty("Content-Type", "application/json");
+        accessor.httpsConnection.setRequestProperty("Accept", "application/json");
+        accessor.httpsConnection.setRequestProperty("Access-Control-Allow-Origin", "github.com.*");
+        accessor.httpsConnection.setDoOutput(true);
+        accessor.httpsConnection.setReadTimeout(60000);
+        accessor.httpsConnection.setConnectTimeout(60000);
 
-        try {
-            urlObj = new URL(url);
-            con = (HttpsURLConnection) urlObj.openConnection();
-            con.setRequestProperty("Content-Type", "application/json");
-            con.setRequestMethod("POST");
-            con.setRequestProperty("Accept", "application/json");
-            con.setRequestProperty("Access-Control-Allow-Origin", "github.com.*");
-            con.setDoOutput(true);
-            con.setReadTimeout(60000);
-            con.setConnectTimeout(60000);
+        accessor.setOutputStream(paramsJSON);
 
-            try (OutputStream os = con.getOutputStream()) {
-                byte[] input = paramsJSON.getBytes("UTF-8");
-                os.write(input, 0, input.length);
-            }
+        setConnectionProperty(accessor.httpsConnection);
 
-            int code = con.getResponseCode();
-            System.out.println("HTTP CODE " + String.valueOf(code));;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-        try {
-            //Receive the response from the server
-            InputStream in = new BufferedInputStream(con.getInputStream());
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            result = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                result.append(line);
-            }
-
-            System.out.println("JSON Parser "+ "result: " + result.toString());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        con.disconnect();
-
-        // try parse the string to a JSON object
-        try {
-            jObj = new JSONObject(result.toString());
-            System.out.println(jObj.toString());
-        } catch (JSONException e) {
-            System.out.println("JSON Parser " + "Error parsing data " + e.toString());
-        }
-
-        return jObj;
+        BufferedReader reader = getJSONUsingHttpsGet(accessor.httpsConnection);
+        String completeContent = getCompleteContentString(reader);
+        if(completeContent.charAt(0) != '[') completeContent = "[" + completeContent + "]";
+        JSONArray jsonArray = new JSONArray(completeContent);
+        closeAllConnection();
+        return jsonArray.getJSONObject(0);
     }
 }

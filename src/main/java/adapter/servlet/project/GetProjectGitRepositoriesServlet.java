@@ -1,13 +1,11 @@
 package adapter.servlet.project;
 
-import adapter.account.AccountRepositoryImpl;
 import adapter.gitrepository.GitRepositoryRepositoryImpl;
 import adapter.project.ProjectRepositoryImpl;
 import domain.GitRepository;
 import domain.Project;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import usecase.account.AccountRepository;
 import usecase.gitrepository.GitRepositoryRepository;
 import usecase.project.ProjectRepository;
 
@@ -21,10 +19,6 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/getProjectGitRepositories", name = "GetProjectGitRepositoriesServlet")
 public class GetProjectGitRepositoriesServlet extends HttpServlet{
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

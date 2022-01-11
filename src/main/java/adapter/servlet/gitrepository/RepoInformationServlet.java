@@ -6,7 +6,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import usecase.GithubRepositoryAccessor;
 import usecase.gitrepository.GitRepositoryRepository;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,10 +16,6 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/repoInfo", name = "RepoInformationServlet")
 public class RepoInformationServlet extends HttpServlet {
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

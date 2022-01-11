@@ -1,7 +1,5 @@
 package usecase.project;
 
-import domain.GitRepository;
-
 import java.util.List;
 
 public interface CreateProjectOutput {

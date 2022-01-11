@@ -3,8 +3,6 @@ package adapter.project;
 import database.Database;
 import domain.Project;
 import usecase.project.ProjectRepository;
-
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

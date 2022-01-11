@@ -2,8 +2,6 @@ package adapter.account;
 
 import database.Database;
 import domain.Account;
-import domain.GitRepository;
-import domain.Project;
 import usecase.account.AccountRepository;
 import java.sql.*;
 import java.util.ArrayList;

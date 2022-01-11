@@ -2,7 +2,6 @@ package adapter.servlet.project;
 
 import adapter.account.AccountRepositoryImpl;
 import adapter.project.ProjectRepositoryImpl;
-import domain.Account;
 import org.json.JSONObject;
 import usecase.account.AccountRepository;
 import usecase.project.ProjectRepository;
@@ -17,10 +16,6 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/deleteProject", name = "DeleteProjectServlet")
 public class DeleteProjectServlet extends HttpServlet {
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

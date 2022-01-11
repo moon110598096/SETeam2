@@ -3,7 +3,6 @@ package adapter.servlet.sonarqube;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import usecase.SonarQubeRepositoryAccessor;
-
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

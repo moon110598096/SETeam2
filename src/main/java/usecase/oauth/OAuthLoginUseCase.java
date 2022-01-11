@@ -1,6 +1,5 @@
 package usecase.oauth;
 
-import adapter.account.CreateAccountInputImpl;
 import domain.Account;
 import usecase.account.AccountRepository;
 import usecase.account.CreateAccountInput;

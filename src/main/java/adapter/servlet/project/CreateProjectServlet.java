@@ -7,7 +7,6 @@ import adapter.project.CreateProjectOutputImpl;
 import adapter.project.CreateProjectUseCase;
 import adapter.project.ProjectRepositoryImpl;
 import domain.Account;
-import domain.Project;
 import org.json.JSONObject;
 import usecase.account.AccountRepository;
 import usecase.project.CreateProjectInput;
@@ -24,10 +23,6 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/createProject", name = "CreateProjectServlet")
 public class CreateProjectServlet extends HttpServlet {
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

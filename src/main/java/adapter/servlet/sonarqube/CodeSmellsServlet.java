@@ -13,10 +13,6 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/CodeSmell", name = "CodeSmellServlet")
 public class CodeSmellsServlet extends HttpServlet{
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-//
-//    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {

@@ -4,27 +4,18 @@ import adapter.account.AccountRepositoryImpl;
 import adapter.account.CreateAccountInputImpl;
 import adapter.account.CreateAccountOutputImpl;
 import domain.Account;
+import org.json.JSONArray;
 import org.json.JSONObject;
-
-import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Locale;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.junit.Assert;
-import usecase.GIthubOAuthAccessor;
+import usecase.GithubOAuthAccessor;
 import usecase.account.AccountRepository;
 import usecase.account.CreateAccountInput;
 import usecase.account.CreateAccountOutput;
-import usecase.account.CreateAccountUseCase;
 import usecase.oauth.OAuthLoginUseCase;
 
 @WebServlet(urlPatterns = "/OAuthorize", name = "OAuthServlet")
@@ -45,7 +36,7 @@ public class OAuthServlet extends HttpServlet {
         out.close();
     }
 
-    private JSONObject OAuthLogin(String code){
+    private JSONObject OAuthLogin(String code) throws IOException {
         System.out.println("OAuthLogin");
         System.out.println(code);
 
@@ -85,13 +76,13 @@ public class OAuthServlet extends HttpServlet {
         body.put("client_secret", clientSecrets);
         body.put("code", code);
 
-        JSONObject response = new JSONObject();
+        JSONObject response;
 
         try {
-            GIthubOAuthAccessor accessor = new GIthubOAuthAccessor();
+            GithubOAuthAccessor accessor = new GithubOAuthAccessor();
             response = accessor.httpPost(url, body.toString());
             String token = response.get("access_token").toString();
-            System.out.println(response.toString());
+            System.out.println(response);
             return token;
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,90 +90,20 @@ public class OAuthServlet extends HttpServlet {
         return null;
     }
 
-    private JSONObject getUser(String token) {
+    private JSONObject getUser(String token) throws IOException {
         System.out.println("getUser");
 
         String url = "https://api.github.com/user";
-        JSONObject body = new JSONObject();
-//        body.put("code", code);
-
-        JSONObject response;
 
         JSONObject user = new JSONObject();
-        try {
-            GIthubOAuthAccessor accessor = new GIthubOAuthAccessor();
-            response = accessor.httpGet(url, body.toString(), token);
-            user.put("id", response.get("id").toString());
-            user.put("login", response.get("login").toString());
 
-            System.out.println(response.toString());
-            return user;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+        GithubOAuthAccessor accessor = new GithubOAuthAccessor();
+        accessor.addHTTPSGetProperty("Content-Type", "application/json");
+        accessor.addHTTPSGetProperty("Authorization", "Bearer "+token);
+        JSONArray jsonArray = accessor.httpsGet(url);
+        user.put("id", jsonArray.getJSONObject(0).get("id").toString());
+        user.put("login", jsonArray.getJSONObject(0).get("login").toString());
+
+        return user;
     }
-
-//    private JSONObject makeHttpRequest(String url, String paramsJSON, String token){
-//        HttpsURLConnection con = null;
-//        URL urlObj;
-//        StringBuilder result = null;
-//        JSONObject jObj = null;
-//
-//        try {
-//            urlObj = new URL(url);
-//            con = (HttpsURLConnection) urlObj.openConnection();
-//
-//            con.setRequestProperty("Content-Type", "application/json");
-//
-//            if (token != null){
-//                con.setRequestMethod("GET");
-//                con.setRequestProperty("Authorization", "Bearer "+token);
-//            }else{
-//                con.setRequestMethod("POST");
-//                con.setRequestProperty("Accept", "application/json");
-//                con.setRequestProperty("Access-Control-Allow-Origin", "github.com.*");
-//                con.setDoOutput(true);
-//                con.setReadTimeout(60000);
-//                con.setConnectTimeout(60000);
-//            }
-//
-//            try (OutputStream os = con.getOutputStream()) {
-//                byte[] input = paramsJSON.getBytes("UTF-8");
-//                os.write(input, 0, input.length);
-//            }
-//
-//            int code = con.getResponseCode();
-//            System.out.println("HTTP CODE " + String.valueOf(code));;
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        try {
-//            //Receive the response from the server
-//            InputStream in = new BufferedInputStream(con.getInputStream());
-//            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-//            result = new StringBuilder();
-//            String line;
-//            while ((line = reader.readLine()) != null) {
-//                result.append(line);
-//            }
-//
-//            System.out.println("JSON Parser "+ "result: " + result.toString());
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        con.disconnect();
-//
-//        // try parse the string to a JSON object
-//        try {
-//            jObj = new JSONObject(result.toString());
-//            System.out.println(jObj.toString());
-//        } catch (JSONException e) {
-//            System.out.println("JSON Parser " + "Error parsing data " + e.toString());
-//        }
-//
-//        return jObj;
-//    }
 }

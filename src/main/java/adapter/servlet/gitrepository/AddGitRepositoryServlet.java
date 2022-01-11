@@ -1,20 +1,16 @@
 package adapter.servlet.gitrepository;
 
-import adapter.account.AccountRepositoryImpl;
 import adapter.gitrepository.CreateGitRepositoryInputImpl;
 import adapter.gitrepository.CreateGitRepositoryOutputImpl;
 import adapter.gitrepository.GitRepositoryRepositoryImpl;
 import adapter.project.ProjectRepositoryImpl;
-import domain.GitRepository;
 import domain.Project;
 import org.json.JSONObject;
-import usecase.account.AccountRepository;
 import usecase.gitrepository.CreateGitRepositoryInput;
 import usecase.gitrepository.CreateGitRepositoryOutput;
 import usecase.gitrepository.CreateGitRepositoryUseCase;
 import usecase.gitrepository.GitRepositoryRepository;
 import usecase.project.ProjectRepository;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,14 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 @WebServlet(urlPatterns = "/addGitRepository", name = "AddGitRepositoryServlet")
 public class AddGitRepositoryServlet extends HttpServlet {
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
