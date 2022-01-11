@@ -60,3 +60,10 @@ button :active{
         width: 70%;
     }
 }
+
+.BackgroundImg {
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  opacity:0.7;
+}

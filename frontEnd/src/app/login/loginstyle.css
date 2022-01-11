@@ -85,3 +85,10 @@ input[type="button"] {
   position: relative;
   top: 1px;
 }
+
+.BackgroundImg {
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  opacity:0.7;
+}
