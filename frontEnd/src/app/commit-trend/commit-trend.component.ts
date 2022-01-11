@@ -49,13 +49,13 @@ export class CommitTrendComponent implements OnInit {
   commitCounts: any;
   owner: any;
   repo: any;
+  repoInfo: any;
 
   // tslint:disable-next-line:typedef
 
   ngOnInit(): void {
     this.repo = window.sessionStorage.getItem('repoName');
     this.owner = window.sessionStorage.getItem('owner');
-
     this.getCommitTrend();
   }
 
@@ -63,12 +63,14 @@ export class CommitTrendComponent implements OnInit {
   // tslint:disable-next-line:typedef
   getCommitTrend() {
     const commitData = {
-      owner: undefined,
-      repo: undefined
+      repoInfo: {
+        owner: undefined,
+        repo: undefined
+       }
     };
-
-    commitData.owner = this.owner;
-    commitData.repo = this.repo;
+    //OK la
+    commitData.repoInfo.owner = this.owner;
+    commitData.repoInfo.repo = this.repo;
     const data = JSON.stringify(commitData);
     this.commitTrendService.getCommit(data).subscribe(
       request => {
