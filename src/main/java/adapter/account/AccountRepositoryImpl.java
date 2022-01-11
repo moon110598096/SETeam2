@@ -20,7 +20,6 @@ public class AccountRepositoryImpl implements AccountRepository {
         accounts.add(account);
         final String insert = " INSERT INTO user(id, name, account, password, githubId) VALUES(?,?,?,?,?) ";
         try {
-            assert conn != null;
             PreparedStatement preparedStatement = conn.prepareStatement(insert);
             preparedStatement.setString (1, account.getId());
             preparedStatement.setString (2, account.getName());
@@ -38,7 +37,6 @@ public class AccountRepositoryImpl implements AccountRepository {
         final String query = " SELECT name, account, password, githubId FROM user WHERE id=?";
         Account account;
         try{
-            assert conn!= null;
             ResultSet resultSet;
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.setString(1, id);
@@ -69,7 +67,6 @@ public class AccountRepositoryImpl implements AccountRepository {
             PreparedStatement ps = null;
             ResultSet resultSet;
             this.conn = Database.getConnection();
-            assert conn != null;
             ps = conn.prepareStatement(query);
 
             ps.setString(1,account.getAccount());
@@ -98,7 +95,6 @@ public class AccountRepositoryImpl implements AccountRepository {
             PreparedStatement ps = null;
             ResultSet resultSet;
             this.conn = Database.getConnection();
-            assert conn != null;
             ps = conn.prepareStatement(query);
 
             ps.setString(1,account.getGithubId());
@@ -129,7 +125,6 @@ public class AccountRepositoryImpl implements AccountRepository {
         for(String projectId : account.getProjects()){
             if(accountInDB.getProjects().contains(projectId)) continue;
             try{
-                assert conn != null;
                 PreparedStatement preparedStatement = conn.prepareStatement(insert);
                 preparedStatement.setString (1, account.getId());
                 preparedStatement.setString (2, projectId);
@@ -148,7 +143,6 @@ public class AccountRepositoryImpl implements AccountRepository {
         try {
             PreparedStatement ps = null;
             ResultSet resultSet;
-            assert conn != null;
             ps = conn.prepareStatement(query);
 
             ps.setString(1,account.getAccount());
@@ -172,7 +166,6 @@ public class AccountRepositoryImpl implements AccountRepository {
         try {
             PreparedStatement ps = null;
             ResultSet resultSet;
-            assert conn != null;
             ps = conn.prepareStatement(query);
 
             ps.setString(1,account.getGithubId());

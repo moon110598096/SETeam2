@@ -27,7 +27,6 @@ public class OAuthLoginUseCase {
             Account account = accountRepository.getAccountByGithubId(admin);
 
             output.setId(account.getId());
-            output.setName(account.getName());
             output.setGithubId(account.getGithubId());
         }
 

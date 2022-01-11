@@ -2,6 +2,8 @@ package usecase.account;
 
 import domain.Account;
 
+import java.sql.SQLException;
+
 public interface AccountRepository {
     void createAccount(Account account);
     Account getAccountById(String id);

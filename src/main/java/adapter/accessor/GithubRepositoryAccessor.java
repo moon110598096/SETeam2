@@ -7,14 +7,13 @@ import java.io.IOException;
 
 public class GithubRepositoryAccessor extends Accessor{
 
-    @Override
     public JSONArray httpsGet(String url) throws IOException {
         Accessor<HttpsURLConnection> accessor = new Accessor<>();
-        accessor.httpsConnection = (HttpsURLConnection)getConnection(url);
+        accessor.connection = getConnection(url);
 
-        accessor.httpsConnection.setRequestMethod("GET");
-        setConnectionProperty(accessor.httpsConnection);
-        BufferedReader reader = getJSONUsingHttpsGet(accessor.httpsConnection);
+        accessor.connection.setRequestMethod("GET");
+        setConnectionProperty(accessor.connection);
+        BufferedReader reader = getJSONUsingHttpsGet(accessor.connection);
         String completeContent = getCompleteContentString(reader);
         if(completeContent.charAt(0) != '[') completeContent = "[" + completeContent + "]";
         JSONArray jsonArray = new JSONArray(completeContent);

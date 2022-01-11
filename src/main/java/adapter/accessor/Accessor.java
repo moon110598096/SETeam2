@@ -1,7 +1,5 @@
 package adapter.accessor;
 
-import org.json.JSONArray;
-import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -12,17 +10,12 @@ public class Accessor <T extends HttpURLConnection>{
     protected InputStream is;
     protected InputStreamReader isr;
 
-    protected HttpsURLConnection httpsConnection;
-    protected HttpURLConnection httpConnection;
+    protected HttpURLConnection connection;
 
     protected Map<String, String> properties;
 
     public Accessor(){
         properties = new HashMap<>();
-    }
-
-    public JSONArray httpsGet(String url) throws IOException {
-        return null;
     }
 
     public void addHTTPSGetProperty(String property, String value){
@@ -55,16 +48,10 @@ public class Accessor <T extends HttpURLConnection>{
     protected void closeAllConnection() throws IOException {
         is.close();
         isr.close();
-        if (httpConnection != null){
-            httpConnection.disconnect();
-        }
-        if (httpsConnection != null){
-            httpsConnection.disconnect();
-        }
     }
 
     protected void setOutputStream(String paramsJSON) throws IOException {
-        try (OutputStream os = httpsConnection.getOutputStream()) {
+        try (OutputStream os = connection.getOutputStream()) {
                 byte[] input = paramsJSON.getBytes("UTF-8");
                 os.write(input, 0, input.length);
         }

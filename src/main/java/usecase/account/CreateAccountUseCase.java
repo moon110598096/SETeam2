@@ -18,7 +18,6 @@ public class CreateAccountUseCase {
                 input.getPassword()
         );
         output.setId(admin.getId());
-        output.setAccount(admin);
         accountRepository.createAccount(admin);
     }
 
@@ -29,7 +28,6 @@ public class CreateAccountUseCase {
         admin.setGithubId(input.getGithubId());
 
         output.setId(admin.getId());
-        output.setName(admin.getName());
         output.setGithubId(admin.getGithubId());
         accountRepository.createAccount(admin);
     }
