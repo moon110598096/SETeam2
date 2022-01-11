@@ -24,18 +24,18 @@
         <h2>Sign up to GRAS</h2>
         <i class="fas fa-user-circle fa-5x"></i>
         <!-- User icon-->
-        <h4>使用者全名</h4>
-        <input type="text" name="FullNameofUser" placeholder="EX:朋魚雁" [(ngModel)]="UserInput">
-        <h4>帳號</h4>
-        <input type="text" name="Account" placeholder="EX:example@gmail.com" [(ngModel)]="accountInput">
+        <h4>User Name</h4>
+        <input type="text" name="FullNameofUser" placeholder="Jon Snow" [(ngModel)]="UserInput">
+        <h4>User Account</h4>
+        <input type="text" name="Account" placeholder="example@gmail.com" [(ngModel)]="accountInput">
         <!-- placeholder顯示在輸入框內的提示 -->
-        <h4>密碼</h4>
-        <input type="password" name="Password" placeholder="請輸入密碼" [(ngModel)]="passwordInput">
-        <h4>密碼確認</h4>
-        <input type="password" name="TypePasswordAgain" placeholder="請再輸入一次密碼" [(ngModel)]="RetrypasswordInput">
-        <button type="submit" (click)="SignUpCheck()">註冊</button>
+        <h4>User Password</h4>
+        <input type="password" name="Password" placeholder="Enter Password" [(ngModel)]="passwordInput">
+        <h4>Confirm User Password</h4>
+        <input type="password" name="TypePasswordAgain" placeholder="Enter Password Again" [(ngModel)]="RetrypasswordInput">
+        <button mat-raised-button color="basic" type="submit" (click)="SignUpCheck()">Sign Up</button>
         <h3  style="color:red; " >{{badRequest}}</h3>
-        <button type="submit" (click)="RoutetoLoginPage()" >已有帳號?點選登入</button>
+        <button mat-button color="primary" type="submit" (click)="RoutetoLoginPage()" class="BackToLogin">Back to Login</button>
     </form>
 </body>
 

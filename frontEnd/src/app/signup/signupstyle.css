@@ -30,24 +30,30 @@ h4 {
 }
 input[type="text"],
 input[type="password"] {
-    font-size: 16px;
-    font-family: "微軟正黑體", sans-serif;
-    padding: 5px;
-    border-radius: 4px;
-    margin: 0 auto;
-    display: block;
-    width: 80%;
+  font-size: 16px;
+  font-family:Arial,sans-serif;
+  padding: 5px;
+  border-radius: 7px;
+  margin: 0 auto;
+  display: block;
+  width: 80%;
 }
 
 button {
-    border: 0;
-    padding: 6px 12px;
-    margin: 10px auto;
-    font-size: 18px;
-    font-family: "微軟正黑體", sans-serif;
-    background: rgb(48, 48, 48);
-    color: rgb(255, 255, 255);
+  background-color:transparent;
+  border:0px;
+  border-radius:7px;
+  padding: 6px 12px;
+  margin: 10px auto;
+  font-size: 18px;
+  font-family:Arial,sans-serif;
 }
+button:focus {outline:0;}
+button :active{
+  position: relative;
+  top: 1px;
+}
+
 
 @media (max-width:450px) {
     .login {

@@ -26,17 +26,16 @@
         <img src="./assets/images/Login.png" width="35%" height="35%">
       <br>
       <br>
-        <h2>帳號</h2>
-          <input type="text" name = "account" placeholder="請輸入帳號" [(ngModel)]="accountInput" required ><!-- placeholder顯示在輸入框內的提示 -->
-        <h2>密碼</h2>
-          <input type="password" name = "password" placeholder="請輸入密碼" [(ngModel)]="passwordInput" required>
+        <h2>Account</h2>
+          <input type="text" name = "account" placeholder="user account" [(ngModel)]="accountInput" required ><!-- placeholder顯示在輸入框內的提示 -->
+        <h2>Password</h2>
+          <input type="password" name = "password" placeholder="user password" [(ngModel)]="passwordInput" required>
         <h3  style="color:red; " >{{badRequest}}</h3>
-            <button  type="submit" (click)="logInCheck()">登入</button>
-            <button  type="submit" (click)="RoutetoSignup()">註冊</button>
+            <button  mat-raised-button color="basic" class="Login" type="submit" (click)="logInCheck()">Login</button>
+            <button  mat-raised-button color="basic" class="SignUp" type="submit" (click)="RoutetoSignup()">Sign Up</button>
             <br>
             <img src="./assets/images/github.png" with="35px" height="35px">
             <input type="button" value="Login With GitHub" (click)="RoutetoOAuth()">
-
     </form>
 </body>
 </html>
