@@ -55,6 +55,13 @@ input[type=text] {
   float:center;
 }
 
+.AddUrl:focus {outline:0;}
+
+.AddUrl:active {
+  position: relative;
+  top: 1px;
+}
+
 .P-name {
   padding:15px 0px;
   font-size:14px;
@@ -88,9 +95,15 @@ input[type=text] {
 
 .Description-textarea:focus {border:2px solid #7FB3D5;}
 
-.AddUrl:focus {outline:0;}
+.ProjectCreation {
+  width:300px;
+  border:0px;
+  border-radius:7px;
+}
 
-.AddUrl:active {
+.ProjectCreation:focus {outline:0;}
+
+.ProjectCreation:active {
   position: relative;
   top: 1px;
 }

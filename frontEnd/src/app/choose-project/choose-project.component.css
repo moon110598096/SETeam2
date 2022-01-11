@@ -66,6 +66,10 @@
   margin:5px 10px 5px 70px;
 }
 .delProject-btn:focus {outline:0;}
+.delProject-btn:active {
+  position:relative;
+  top:1px;
+}
 
 .td-repos {
   padding:0px 5px;
