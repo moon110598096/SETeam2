@@ -38,6 +38,10 @@ input[type=text] {
 
 .input:focus {border:2px solid #7FB3D5;}
 
+::placeholder {
+  color:#A9CCE3;
+}
+
 .P-URLs {
   padding:15px 0px;
   font-size:14px;
