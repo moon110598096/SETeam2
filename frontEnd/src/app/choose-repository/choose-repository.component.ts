@@ -22,6 +22,11 @@ export class ChooseRepositoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+     window.scroll({
+       top: 0,
+       left: 0,
+       behavior: 'smooth'
+     });
      this.UserName = window.sessionStorage.getItem('Username');
      this.ProjectID = window.sessionStorage.getItem('ChosenProjectID');
      this.ProjectName = window.sessionStorage.getItem('ChosenProjectName');

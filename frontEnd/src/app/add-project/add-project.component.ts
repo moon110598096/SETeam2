@@ -27,6 +27,11 @@ export class AddProjectComponent implements OnInit {
 
    }
   ngOnInit(): void {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
     this.UserID = window.sessionStorage.getItem('UserID');
     this.UserName = window.sessionStorage.getItem('Username');
   }
@@ -42,17 +47,19 @@ export class AddProjectComponent implements OnInit {
         this.datas = request;
         console.log(this.datas);
         if (this.datas.isUrlVaild == "true"){
-
-          //this.projectImportMsg += '\n' + " [導入成功] "+this.InputGitRepoUrl + '\n';
-          this.InputGitRepoUrlList.push(this.InputGitRepoUrl);
-          this.InputGitRepoUrl = null;
-          if(this.badImportMsg != null ){
-            this.badImportMsg = null;
+          if(this.InputGitRepoUrlList.indexOf(this.InputGitRepoUrl) !== -1){
+            this.projectImportMsg = "Already Imported This URL.";
+            this.InputGitRepoUrl = null;
+          }
+          else{
+            this.projectImportMsg = this.InputGitRepoUrl;
+            this.InputGitRepoUrlList.push(this.InputGitRepoUrl);
+            this.InputGitRepoUrl = null;
           }
         }
         else{
-          this.badImportMsg = "Invalid url.\n";
-          alert(this.badImportMsg);
+          this.projectImportMsg = "Invalid url.";
+          this.InputGitRepoUrl = null;
         }
       }
     );

@@ -24,6 +24,11 @@ export class ChooseProjectComponent implements OnInit {
   constructor(private router: Router, private getProjectInfoService: GetProjectInfoService, private delProjectService: DeleteProjectService, private activerouter:ActivatedRoute ) {}
 
   ngOnInit(): void {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
     this.UserName = window.sessionStorage.getItem('Username');
     this.UserID = window.sessionStorage.getItem('UserID');
     this.getTotalProjectInfo();
@@ -59,7 +64,7 @@ export class ChooseProjectComponent implements OnInit {
   delete_repo(delId) {
     const deletedprojectId: string = delId.toString();
     console.log("choose to delete id:",deletedprojectId);
-    if(confirm("確認要刪除此專案嗎?"))
+    if(confirm("Do You Want To Delete This Project?"))
     {
       const DeleteProject = {
             userId:undefined,
@@ -73,11 +78,11 @@ export class ChooseProjectComponent implements OnInit {
         this.responsedata = request;
         console.log(this.responsedata);
           if(this.responsedata.isSuccess == "true"){
-            alert("刪除專案成功")
+            alert("Project Deleted.")
             //this.router.navigate(['choose-project']);
           }
           else{
-            alert("刪除專案失敗")
+            alert("Delete Fail.")
           }
 
         }
