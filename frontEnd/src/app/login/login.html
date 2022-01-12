@@ -26,9 +26,9 @@
         <img src="./assets/images/Login.png" width="35%" height="35%" style="opacity:0.8;">
       <br>
       <br>
-        <h2>Account</h2>
+        <h2 style="margin-bottom:0px;margin-top:10px;">Account</h2>
           <input type="text" name = "account" placeholder="user account" [(ngModel)]="accountInput" required ><!-- placeholder顯示在輸入框內的提示 -->
-        <h2>Password</h2>
+        <h2 style="margin-bottom:0px;margin-top:10px;">Password</h2>
           <input type="password" name = "password" placeholder="user password" [(ngModel)]="passwordInput" required>
         <h3  style="color:red; " >{{badRequest}}</h3>
             <button  mat-raised-button  class="Login" type="submit" (click)="logInCheck()">Login</button>
