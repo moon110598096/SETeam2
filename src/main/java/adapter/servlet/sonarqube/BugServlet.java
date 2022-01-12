@@ -31,7 +31,6 @@ public class BugServlet extends HttpServlet {
     }
 
     private JSONObject getBugInfoJsonObject(String component) throws IOException {
-//        String apiUrl = "http://140.124.184.179:9000/api/measures/component?component=" + component + "&metricKeys=bugs";
         String apiUrl = "http://140.124.181.10:9000/api/measures/component?component=" + component + "&metricKeys=bugs";
         SonarQubeRepositoryAccessor accessor = new SonarQubeRepositoryAccessor();
         JSONArray jsonArray = accessor.httpGet(apiUrl);

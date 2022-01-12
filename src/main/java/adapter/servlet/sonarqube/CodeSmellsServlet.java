@@ -34,7 +34,6 @@ public class CodeSmellsServlet extends HttpServlet{
     }
 
     private JSONObject getCodeSmellInfoJsonObject(String component) throws IOException {
-//        String apiUrl = "http://140.124.184.179:9000/api/measures/component?component=" + component + "&metricKeys=code_smells";
         String apiUrl = "http://140.124.181.10:9000/api/measures/component?component=" + component + "&metricKeys=code_smells";
         SonarQubeRepositoryAccessor accessor = new SonarQubeRepositoryAccessor();
         JSONArray jsonArray = accessor.httpGet(apiUrl);

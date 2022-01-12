@@ -33,7 +33,6 @@ public class HistoryServlet extends HttpServlet{
 
     private JSONObject getHistoryJSONObject(String component) throws IOException {
         String apiUrl = "http://140.124.181.10:9000/api/measures/search_history?component=" + component+"&metrics=bugs%2Ccode_smells%2Cvulnerabilities%2Creliability_rating%2Csecurity_rating%2Csqale_rating&ps=1000";
-//        Accessor accessor = new SonarQubeRepositoryAccessor();
         SonarQubeRepositoryAccessor accessor = new SonarQubeRepositoryAccessor();
         JSONArray jsonArray = accessor.httpGet(apiUrl);
         JSONArray measuresJSONArray = jsonArray.getJSONObject(0).getJSONArray("measures");

@@ -28,8 +28,7 @@ public class Project {
     }
 
     public void addGitRepository(String id){
-        //可改進:use eventbus
-        gitRepositories.add(id);
+        gitRepositories.add(id);            //可改進:use eventbus
     }
 
     public String getDescription() {

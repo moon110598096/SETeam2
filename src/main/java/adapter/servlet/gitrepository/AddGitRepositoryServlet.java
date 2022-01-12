@@ -47,10 +47,10 @@ public class AddGitRepositoryServlet extends HttpServlet {
 
             }while((line = requestReader.readLine()) != null);
             projectRepository.updateProject(project);
-            jsonObject.put("isSuccess", "true");
+            request.setAttribute("isSuccess", "true");
 
         }catch (Exception e){
-            jsonObject.put("isSuccess", "false");
+            request.setAttribute("isSuccess", "false");
             e.printStackTrace();
         }
 

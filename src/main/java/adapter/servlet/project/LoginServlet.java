@@ -17,8 +17,8 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // dependency 超亂(bad smell but no time.QQ)
-        JSONObject jsonObject = new JSONObject();
+
+        JSONObject jsonObject = new JSONObject();           // dependency 超亂(bad smell but no time.QQ)
         AccountRepository accountRepository = new AccountRepositoryImpl();
         JSONObject requestBody = new JSONObject(request.getReader().readLine());
         Account account = new Account(

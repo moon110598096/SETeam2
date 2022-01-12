@@ -48,8 +48,8 @@ public class VerifyUrlServlet extends HttpServlet {
                 }
             }
         } catch (Exception ignored) {}
-        // ugly logic
-        if(verifyJson != null) {
+
+        if(verifyJson != null) {        // ugly logic
             if (verifyJson.has("message")){
                 if(verifyJson.get("message").equals("Not Found")){
                     return false;

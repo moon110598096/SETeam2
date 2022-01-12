@@ -106,11 +106,6 @@ public class CommitServlet extends HttpServlet {
         return totalStatsResult;
     }
 
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-//
-//    }
-
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         JSONObject requestBody = new JSONObject(request.getReader().readLine());
